@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>941939169804-gd2cmngebqdna4q919112n56ir3l5c18.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.941939169804-gd2cmngebqdna4q919112n56ir3l5c18</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAcyhA16L30igdFl9qMFqBNj9_8ktHUVxQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>941939169804</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.shamanito.donors-mkt-app</string>
+	<key>PROJECT_ID</key>
+	<string>donormkt</string>
+	<key>STORAGE_BUCKET</key>
+	<string>donormkt.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:941939169804:ios:d17e5fbc0439cbd3</string>
+	<key>DATABASE_URL</key>
+	<string>https://donormkt.firebaseio.com</string>
+</dict>
+</plist>

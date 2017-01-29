@@ -13,8 +13,8 @@ target 'donors_tweet_ios' do
     pod 'SVProgressHUD'
     pod 'SnapKit', '~> 3.1.2'
     pod 'Locksmith'
-
-
+    pod 'FirebaseUI/Auth', '~> 2.0'
+    pod 'Firebase'
 
 
 end
