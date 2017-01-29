@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (4.3.0)
+  - Locksmith (3.0.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SnapKit (3.1.2)
+  - SVProgressHUD (2.1.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.3)
+  - Locksmith
+  - SDWebImage (~> 3.8)
+  - SnapKit (~> 3.1.2)
+  - SVProgressHUD
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: 1a31b9a78249545650532e759d8b119e104a87f6
+
+COCOAPODS: 1.2.0
