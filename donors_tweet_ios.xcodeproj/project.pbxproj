@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D72D8B41E3DB98F00880CC4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D72D8B31E3DB98F00880CC4 /* GoogleService-Info.plist */; };
+		1D72D8B61E3DBD5300880CC4 /* CampaignDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */; };
 		1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C61E3D8A9300450357 /* AppDelegate.swift */; };
 		1DEC37C91E3D8A9300450357 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C81E3D8A9300450357 /* ViewController.swift */; };
 		1DEC37CC1E3D8A9300450357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC37CA1E3D8A9300450357 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		1D72D8B31E3DB98F00880CC4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignDetailsViewController.swift; sourceTree = "<group>"; };
 		1DEC37C31E3D8A9300450357 /* donors_tweet_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = donors_tweet_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEC37C61E3D8A9300450357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DEC37C81E3D8A9300450357 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				1D72D8B31E3DB98F00880CC4 /* GoogleService-Info.plist */,
 				1DEC37C61E3D8A9300450357 /* AppDelegate.swift */,
 				1DEC37C81E3D8A9300450357 /* ViewController.swift */,
+				1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */,
 				1DEC37CA1E3D8A9300450357 /* Main.storyboard */,
 				1DEC37CD1E3D8A9300450357 /* Assets.xcassets */,
 				1DEC37CF1E3D8A9300450357 /* LaunchScreen.storyboard */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DEC37C91E3D8A9300450357 /* ViewController.swift in Sources */,
+				1D72D8B61E3DBD5300880CC4 /* CampaignDetailsViewController.swift in Sources */,
 				1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
