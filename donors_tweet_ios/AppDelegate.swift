@@ -7,7 +7,10 @@
 //
 
 import UIKit
-import Firebase;
+import Firebase
+import FirebaseAuth
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Use Firebase library to configure APIs
-        FIRApp.configure()
+        FirebaseApp.configure()
         
         return true
     }
