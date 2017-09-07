@@ -38,7 +38,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 let json = JSON(value)
                 //print("JSON: \(json)")
                 
-                let campaigns =  json["rows"].arrayValue.map({
+                _ =  json["rows"].arrayValue.map({
                     
                 
                     //create campaign cards here

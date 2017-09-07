@@ -6,13 +6,13 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
-  - Fabric (1.6.12)
+  - Fabric (1.6.13)
   - FBSDKCoreKit (4.26.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.26.0):
     - FBSDKCoreKit
-  - Firebase (4.1.1):
-    - Firebase/Core (= 4.1.1)
+  - FBSDKShareKit (4.26.0):
+    - FBSDKCoreKit
   - Firebase/Auth (4.1.1):
     - Firebase/Core
     - FirebaseAuth (= 4.1.1)
@@ -33,14 +33,6 @@ PODS:
     - nanopb (~> 0.3)
   - FirebaseInstanceID (2.0.2):
     - FirebaseCore (~> 4.0)
-  - FirebaseUI/Auth (4.1.1):
-    - Firebase/Auth
-  - FirebaseUI/Facebook (4.1.1):
-    - FBSDKLoginKit (~> 4.0)
-    - FirebaseUI/Auth
-  - FirebaseUI/Twitter (4.1.1):
-    - FirebaseUI/Auth
-    - TwitterKit (~> 2.4)
   - GoogleToolboxForMac/DebugUtils (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -64,36 +56,36 @@ PODS:
   - SnapKit (3.1.2)
   - SVProgressHUD (2.1.2)
   - SwiftyJSON (3.1.4)
-  - TwitterCore (2.8.0):
-    - Fabric
-  - TwitterKit (2.8.1):
-    - TwitterCore (>= 2.8)
+  - TwitterCore (3.0.0)
+  - TwitterKit (3.1.0):
+    - TwitterCore (>= 3.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
-  - Firebase
-  - FirebaseUI/Auth (~> 4.0)
-  - FirebaseUI/Facebook (~> 4.0)
-  - FirebaseUI/Twitter (~> 4.0)
+  - Fabric
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - Firebase/Auth
   - Locksmith
   - SDWebImage (~> 3.8)
   - SnapKit (~> 3.1.2)
   - SVProgressHUD
   - SwiftyJSON
-  - TwitterCore (<= 2.8.0)
+  - TwitterKit
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
-  Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
+  Fabric: 2fb5676bc811af011a04513451f463dac6803206
   FBSDKCoreKit: c8b8582311ec11b145451d8b9717dc6cc2ae5a76
   FBSDKLoginKit: f3f03b94c21eb834af243c0a881d48641f47ca60
+  FBSDKShareKit: 320712d8293fde6392872c91eb80ef0da5d73cc3
   Firebase: 052c0de688fc87b414996eea13e223dd9fee3fa2
   FirebaseAnalytics: 76f754d37ca5b04f36856729b6af3ca0152d1069
   FirebaseAuth: f8b07aa83de60d606b4eadd81484b3ac2097ea3e
   FirebaseCore: 28def3c643989c97ea5a69ea5000f5fa9902b9fd
   FirebaseInstanceID: c4c7fca62c7b7330caee5da04f19a37ea37bb1c1
-  FirebaseUI: 5ebebe2c096c71f20abd1d43d0388958373bdaa0
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5ad62e8200fa00ed011fe5e08d27fef72c5b1429
   Locksmith: 310b4cc5031af5728bf4db5d4de547a5100c6a3b
@@ -102,9 +94,9 @@ SPEC CHECKSUMS:
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
-  TwitterKit: 3b6044a7320340326a4098f3e37aa1dbaeb94942
+  TwitterCore: 8ce250be1eb34633a0e6acc89520d4165ec52c10
+  TwitterKit: 21d0b22d67cb9a568cd8053972d0da7df2e0e9a0
 
-PODFILE CHECKSUM: 6caa646753962103f165ae88f90b5f784d3622fe
+PODFILE CHECKSUM: e24a1067fc6b422937888796d6b1afd6bb0368b3
 
 COCOAPODS: 1.2.0

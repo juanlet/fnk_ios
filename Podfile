@@ -15,11 +15,15 @@ target 'donors_tweet_ios' do
     pod 'Locksmith'
  
     #AUTH
-    pod 'Firebase'
-    pod 'TwitterCore', '<=2.8.0' # fixed
-    pod 'FirebaseUI/Auth', '~> 4.0'
-    pod 'FirebaseUI/Facebook', '~> 4.0'
-    pod 'FirebaseUI/Twitter', '~> 4.0'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKShareKit'
+    pod 'FBSDKLoginKit'
+
+    pod 'Firebase/Auth'
+    
+    pod 'Fabric'
+    pod 'TwitterKit'
+
 
 
 end
