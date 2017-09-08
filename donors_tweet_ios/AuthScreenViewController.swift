@@ -61,6 +61,7 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        self.logOutFirebaseFacebook()
         print("Did Log Out Of Facebook")
     }
     
@@ -93,8 +94,9 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func createFacebookFirebaseUser(){
-        let token = FBSDKAccessToken.current().tokenString
-        let credential = FacebookAuthProvider.credential(withAccessToken: token!)
+        let accesstToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accesstToken?.tokenString else { return }
+        let credential = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
         
         Auth.auth().signIn(with: credential) { (user, error) in
             if error != nil {
@@ -104,7 +106,16 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             // User is signed in
             // ...
-            print("User is logged in")
+            print("User is logged in", user ?? "")
+        }
+    }
+//logs the user out of firebase
+    func logOutFirebaseFacebook(){
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
         }
     }
 }
