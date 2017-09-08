@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Firebase
+
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 

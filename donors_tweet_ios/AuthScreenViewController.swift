@@ -8,9 +8,10 @@
 
 import UIKit
 import FBSDKLoginKit
+import Firebase
 
 class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,20 +31,30 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         //FB CUSTOM BUTTON
         
         let customFBButton = UIButton(type: .system)
-     customFBButton.backgroundColor = .blue
-     customFBButton.frame = CGRect(x: 16, y: 116, width: view.frame.width-32, height: 50)
-     customFBButton.setTitle("Facebook Custom Button", for: .normal)
-     customFBButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-     view.addSubview(customFBButton)
+        customFBButton.backgroundColor = .blue
+        customFBButton.frame = CGRect(x: 16, y: 116, width: view.frame.width-32, height: 50)
+        customFBButton.setTitle("Facebook Custom Button", for: .normal)
+        customFBButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        customFBButton.setTitleColor(.white, for: .normal)
+        view.addSubview(customFBButton)
         //listener for touch events for this button
         customFBButton.addTarget(self, action: #selector(handleCustomFBLogin), for: .touchUpInside)
         
     }
     
     func handleCustomFBLogin(){
-        print(1234)
+        FBSDKLoginManager().logIn(withReadPermissions: ["email","public_profile"]
+        , from: self) { (result, err) in
+            if err != nil{
+                print("Custom FB Login Failed:",err ?? "")
+                return
+            }
+            
+            print(result?.token.tokenString ?? "")
+            self.showEmailAddress()
+        }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -60,6 +71,14 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         }
         
         print("Successfully logged in with facebook")
+        
+        self.showEmailAddress()
+    }
+    
+    func showEmailAddress(){
+        
+        
+        
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id,name,email"]).start { (connection, result, err) in
             
             if err != nil {
@@ -67,13 +86,25 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                 return
             }
             
-            
+            self.createFacebookFirebaseUser();
             
             print(result ?? "")
         }
-        
     }
     
-
-
+    func createFacebookFirebaseUser(){
+        let token = FBSDKAccessToken.current().tokenString
+        let credential = FacebookAuthProvider.credential(withAccessToken: token!)
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if error != nil {
+                // ...
+                print("Error with Facebook firebase login",error ?? "Default Error Message")
+                return
+            }
+            // User is signed in
+            // ...
+            print("User is logged in")
+        }
+    }
 }
