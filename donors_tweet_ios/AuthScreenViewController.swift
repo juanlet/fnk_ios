@@ -28,7 +28,7 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     //=========
     
     fileprivate func setupTwitterButton(){
-     
+        
         let twitterButton = TWTRLogInButton {(session, error) in
             
             if (session != nil) {
@@ -36,9 +36,11 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                 //log in with Firebase
                 
                 let client = TWTRAPIClient.withCurrentUser()
-                 //get user email to insert it into firebase
+                
+                //get user email to insert it into firebase
                 client.requestEmail { email, error in
-                    if (email != nil) {
+                    if (//email != nil  activate once the app is whitelisted to get emails providing terms and conditions to twitter
+                        true) {
                         print("signed in as \(email ?? "")");
                         
                         
@@ -59,7 +61,8 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                             
                             //update user email
                             
-                            Auth.auth().currentUser?.updateEmail(to: email!) { (error) in
+                          //  Auth.auth().currentUser?.updateEmail(to: email!) { (error) in
+                            Auth.auth().currentUser?.updateEmail(to: "claudiomiguelespanto@gmail.com") { (error) in
                                 if let err = error {
                                     print("Failed to update user email", err)
                                     return
@@ -75,8 +78,8 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                         print("error: \(error?.localizedDescription ?? "")");
                     }
                 }
-
-               
+                
+                
             } else {
                 print("error: \(error?.localizedDescription ?? "")");
             }
@@ -183,7 +186,7 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
             print("User is logged in", user ?? "")
         }
     }
-//logs the user out of firebase
+    //logs the user out of firebase
     func logOutFirebaseFacebook(){
         let firebaseAuth = Auth.auth()
         do {
