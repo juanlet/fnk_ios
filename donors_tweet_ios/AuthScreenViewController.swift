@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import TwitterKit
 
 class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     
@@ -17,6 +18,81 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         // Do any additional setup after loading the view.
         
+        self.setupFacebookButtons()
+        
+        self.setupTwitterButton()
+    }
+    
+    //=========
+    // Twitter Methods
+    //=========
+    
+    fileprivate func setupTwitterButton(){
+     
+        let twitterButton = TWTRLogInButton {(session, error) in
+            
+            if (session != nil) {
+                print("signed in as \(session?.userName ?? "")");
+                //log in with Firebase
+                
+                let client = TWTRAPIClient.withCurrentUser()
+                 //get user email to insert it into firebase
+                client.requestEmail { email, error in
+                    if (email != nil) {
+                        print("signed in as \(email ?? "")");
+                        
+                        
+                        //get the token and the user's secret from twitter's login response
+                        guard let token = session?.authToken else { return }
+                        guard let secret = session?.authTokenSecret else { return }
+                        
+                        let credentials = TwitterAuthProvider.credential(withToken: token, secret: secret)
+                        //create firebase user
+                        Auth.auth().signIn(with: credentials, completion: { (user, error) in
+                            
+                            if let err = error {
+                                print("Failed to login to Firebase with Twitter: ", err)
+                                return
+                            }
+                            
+                            print("Successfully created a Firebase-Twitter user: ",user?.uid ?? "")
+                            
+                            //update user email
+                            
+                            Auth.auth().currentUser?.updateEmail(to: email!) { (error) in
+                                if let err = error {
+                                    print("Failed to update user email", err)
+                                    return
+                                }
+                                
+                                print("Email updated successfully to ",email ?? "")
+                                
+                            }
+                        })
+                        
+                        
+                    } else {
+                        print("error: \(error?.localizedDescription ?? "")");
+                    }
+                }
+
+               
+            } else {
+                print("error: \(error?.localizedDescription ?? "")");
+            }
+        }
+        
+        view.addSubview(twitterButton)
+        
+        twitterButton.frame = CGRect(x: 16, y: 50 + 66, width: view.frame.width-32, height: 50)
+        
+    }
+    
+    //===========================
+    //FACEBOOK AUTH METHODS
+    //===========================
+    
+    fileprivate func setupFacebookButtons(){
         let fbLoginButton = FBSDKLoginButton()
         
         view.addSubview(fbLoginButton)
@@ -77,8 +153,6 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func showEmailAddress(){
-        
-        
         
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id,name,email"]).start { (connection, result, err) in
             

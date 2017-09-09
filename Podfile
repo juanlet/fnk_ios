@@ -21,7 +21,6 @@ target 'donors_tweet_ios' do
 
     pod 'Firebase/Auth'
     
-    pod 'Fabric'
     pod 'TwitterKit'
 
 

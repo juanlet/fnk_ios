@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */; };
 		1D44C1DD1F62E74C00BC1186 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */; };
+		1D605A6E1F63A4F200A50681 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D605A6D1F63A4F200A50681 /* SafariServices.framework */; };
 		1D72D8B61E3DBD5300880CC4 /* CampaignDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */; };
 		1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C61E3D8A9300450357 /* AppDelegate.swift */; };
 		1DEC37C91E3D8A9300450357 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C81E3D8A9300450357 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
 		1D4010841F61A14E00D5B7CA /* donors_tweet_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = donors_tweet_ios.entitlements; sourceTree = "<group>"; };
 		1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1D605A6D1F63A4F200A50681 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignDetailsViewController.swift; sourceTree = "<group>"; };
 		1DEC37C31E3D8A9300450357 /* donors_tweet_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = donors_tweet_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEC37C61E3D8A9300450357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D605A6E1F63A4F200A50681 /* SafariServices.framework in Frameworks */,
 				94C35843DB0AD23EC0669D5A /* Pods_donors_tweet_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +97,7 @@
 		6935320D00B476C9C8E0EB4F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D605A6D1F63A4F200A50681 /* SafariServices.framework */,
 				BFB8AD191D96DEA35BDDC17A /* Pods_donors_tweet_ios.framework */,
 			);
 			name = Frameworks;

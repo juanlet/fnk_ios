@@ -27,6 +27,7 @@
 			<array>
 				<string>com.googleusercontent.apps.941939169804-gd2cmngebqdna4q919112n56ir3l5c18</string>
 				<string>fb995198773956015</string>
+                <string>twitterkit-OrXCBujNBKDKJWWcWDG13caAo</string>
 			</array>
 		</dict>
 	</array>
@@ -44,6 +45,8 @@
 		<string>fb-messenger-api</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
+        <string>twitter</string>
+        <string>twitterauth</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
