@@ -41,28 +41,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         campaignTableView.dataSource=self
         
+        recoverUserDefaults()
+        
         getCampaignList()
-        
-        if let fbID = UserDefaults.standard.object(forKey: Config.Global._facebookIdUserDefaults) as? String {
-            facebookID = fbID
-        }else{
-            print("FACEBOOK ID IS NULL")
-        }
-        
-        
-        
-        if let twtID = UserDefaults.standard.object(forKey: Config.Global._twitterIdUserDefaults) as? String{
-            twitterID = twtID
-        }else{
-            print("TWITTER ID IS NULL")
-        }
-        
-        
-        if  let firID = UserDefaults.standard.object(forKey: Config.Global._firebaseIdUserDefaults) as? String{
-            firebaseID = firID
-        }else{
-            print("TWITTER ID IS NULL")
-        }
         
         print(facebookID, twitterID, firebaseID)
     }
@@ -70,15 +51,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func getCampaignList(){
     
-        Alamofire.request(serverFetchCampaignsUrl, method: .get).validate().responseJSON { response in
+        Alamofire.request(serverFetchCampaignsUrl+"/campaigns/get/all/user/\(twitterID)/firebase/\(firebaseID)/cat/0", method: .get).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                //print("JSON: \(json)")
+                print("JSON: \(json)")
                 
                 _ =  json["rows"].arrayValue.map({
                     
-                
+                    
                     //create campaign cards here
                     
                     print($0["cause_description"].stringValue)
@@ -110,6 +91,31 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     cell?.textLabel?.text = campaignRowsData[indexPath.row]
         
         return cell!
+    }
+    
+    func recoverUserDefaults(){
+        if let fbID = UserDefaults.standard.object(forKey: Config.Global._facebookIdUserDefaults) as? String {
+            facebookID = fbID
+        }else{
+            print("FACEBOOK ID IS NULL")
+        }
+        
+        
+        
+        if let twtID = UserDefaults.standard.object(forKey: Config.Global._twitterIdUserDefaults) as? String{
+            twitterID = twtID
+        }else{
+            print("TWITTER ID IS NULL")
+        }
+        
+        
+        if  let firID = UserDefaults.standard.object(forKey: Config.Global._firebaseIdUserDefaults) as? String{
+            firebaseID = firID
+        }else{
+            print("TWITTER ID IS NULL")
+        }
+        
+        return
     }
     
     

@@ -10,10 +10,21 @@
 		1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */; };
 		1D44C1DD1F62E74C00BC1186 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */; };
 		1D4ADF291F67A28100F4F223 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF281F67A28100F4F223 /* Config.swift */; };
+		1D4ADF2B1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF2A1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift */; };
+		1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF2C1F67AA4800F4F223 /* CurrentUserUtil.swift */; };
+		1D4ADF2F1F67AA7100F4F223 /* DateISOManagerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF2E1F67AA7100F4F223 /* DateISOManagerUtil.swift */; };
+		1D4ADF311F67AA8B00F4F223 /* SponsorManagerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF301F67AA8B00F4F223 /* SponsorManagerUtil.swift */; };
+		1D4ADF381F67B31B00F4F223 /* Sponsor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF371F67B31B00F4F223 /* Sponsor.swift */; };
+		1D4ADF3A1F67B44C00F4F223 /* AdCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF391F67B44C00F4F223 /* AdCampaign.swift */; };
+		1D4ADF3C1F67B4AF00F4F223 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF3B1F67B4AF00F4F223 /* Video.swift */; };
+		1D4ADF3E1F67B7D300F4F223 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF3D1F67B7D300F4F223 /* Category.swift */; };
+		1D4ADF401F67B86000F4F223 /* Contributor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF3F1F67B86000F4F223 /* Contributor.swift */; };
+		1D4ADF421F67B95C00F4F223 /* Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF411F67B95C00F4F223 /* Foundation.swift */; };
+		1D4ADF441F67BA5900F4F223 /* CauseCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF431F67BA5900F4F223 /* CauseCampaign.swift */; };
 		1D605A6E1F63A4F200A50681 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D605A6D1F63A4F200A50681 /* SafariServices.framework */; };
 		1D72D8B61E3DBD5300880CC4 /* CampaignDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */; };
 		1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C61E3D8A9300450357 /* AppDelegate.swift */; };
-		1DEC37C91E3D8A9300450357 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C81E3D8A9300450357 /* ViewController.swift */; };
+		1DEC37C91E3D8A9300450357 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C81E3D8A9300450357 /* MainViewController.swift */; };
 		1DEC37CC1E3D8A9300450357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC37CA1E3D8A9300450357 /* Main.storyboard */; };
 		1DEC37CE1E3D8A9300450357 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC37CD1E3D8A9300450357 /* Assets.xcassets */; };
 		1DEC37D11E3D8A9300450357 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC37CF1E3D8A9300450357 /* LaunchScreen.storyboard */; };
@@ -27,11 +38,22 @@
 		1D4ADF231F679F0E00F4F223 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		1D4ADF241F679F0F00F4F223 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1D4ADF281F67A28100F4F223 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		1D4ADF2A1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignsGlobalDataManagerUtil.swift; sourceTree = "<group>"; };
+		1D4ADF2C1F67AA4800F4F223 /* CurrentUserUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUserUtil.swift; sourceTree = "<group>"; };
+		1D4ADF2E1F67AA7100F4F223 /* DateISOManagerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateISOManagerUtil.swift; sourceTree = "<group>"; };
+		1D4ADF301F67AA8B00F4F223 /* SponsorManagerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorManagerUtil.swift; sourceTree = "<group>"; };
+		1D4ADF371F67B31B00F4F223 /* Sponsor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sponsor.swift; sourceTree = "<group>"; };
+		1D4ADF391F67B44C00F4F223 /* AdCampaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdCampaign.swift; sourceTree = "<group>"; };
+		1D4ADF3B1F67B4AF00F4F223 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		1D4ADF3D1F67B7D300F4F223 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		1D4ADF3F1F67B86000F4F223 /* Contributor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contributor.swift; sourceTree = "<group>"; };
+		1D4ADF411F67B95C00F4F223 /* Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foundation.swift; sourceTree = "<group>"; };
+		1D4ADF431F67BA5900F4F223 /* CauseCampaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseCampaign.swift; sourceTree = "<group>"; };
 		1D605A6D1F63A4F200A50681 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignDetailsViewController.swift; sourceTree = "<group>"; };
 		1DEC37C31E3D8A9300450357 /* donors_tweet_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = donors_tweet_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEC37C61E3D8A9300450357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1DEC37C81E3D8A9300450357 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1DEC37C81E3D8A9300450357 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1DEC37CB1E3D8A9300450357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1DEC37CD1E3D8A9300450357 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DEC37D01E3D8A9300450357 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +76,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D4ADF321F67AA9100F4F223 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1D4ADF2A1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift */,
+				1D4ADF2C1F67AA4800F4F223 /* CurrentUserUtil.swift */,
+				1D4ADF2E1F67AA7100F4F223 /* DateISOManagerUtil.swift */,
+				1D4ADF301F67AA8B00F4F223 /* SponsorManagerUtil.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		1D4ADF331F67AAAC00F4F223 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC37C81E3D8A9300450357 /* MainViewController.swift */,
+				1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */,
+				1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1D4ADF341F67AACE00F4F223 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */,
+				1D4010841F61A14E00D5B7CA /* donors_tweet_ios.entitlements */,
+				1DEC37D21E3D8A9300450357 /* Info.plist */,
+				1D4ADF281F67A28100F4F223 /* Config.swift */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		1D4ADF351F67AAF300F4F223 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1D4ADF361F67B30900F4F223 /* Models */,
+				1DEC37C61E3D8A9300450357 /* AppDelegate.swift */,
+				1D4ADF321F67AA9100F4F223 /* Utils */,
+				1D4ADF331F67AAAC00F4F223 /* ViewControllers */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		1D4ADF361F67B30900F4F223 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1D4ADF371F67B31B00F4F223 /* Sponsor.swift */,
+				1D4ADF391F67B44C00F4F223 /* AdCampaign.swift */,
+				1D4ADF3B1F67B4AF00F4F223 /* Video.swift */,
+				1D4ADF3D1F67B7D300F4F223 /* Category.swift */,
+				1D4ADF3F1F67B86000F4F223 /* Contributor.swift */,
+				1D4ADF411F67B95C00F4F223 /* Foundation.swift */,
+				1D4ADF431F67BA5900F4F223 /* CauseCampaign.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		1DEC37BA1E3D8A9300450357 = {
 			isa = PBXGroup;
 			children = (
@@ -75,17 +154,11 @@
 		1DEC37C51E3D8A9300450357 /* donors_tweet_ios */ = {
 			isa = PBXGroup;
 			children = (
-				1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */,
-				1D4010841F61A14E00D5B7CA /* donors_tweet_ios.entitlements */,
-				1DEC37C61E3D8A9300450357 /* AppDelegate.swift */,
-				1DEC37C81E3D8A9300450357 /* ViewController.swift */,
-				1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */,
+				1D4ADF351F67AAF300F4F223 /* src */,
+				1D4ADF341F67AACE00F4F223 /* Config */,
 				1DEC37CA1E3D8A9300450357 /* Main.storyboard */,
 				1DEC37CD1E3D8A9300450357 /* Assets.xcassets */,
 				1DEC37CF1E3D8A9300450357 /* LaunchScreen.storyboard */,
-				1DEC37D21E3D8A9300450357 /* Info.plist */,
-				1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */,
-				1D4ADF281F67A28100F4F223 /* Config.swift */,
 			);
 			path = donors_tweet_ios;
 			sourceTree = "<group>";
@@ -240,10 +313,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DEC37C91E3D8A9300450357 /* ViewController.swift in Sources */,
+				1D4ADF381F67B31B00F4F223 /* Sponsor.swift in Sources */,
+				1D4ADF3C1F67B4AF00F4F223 /* Video.swift in Sources */,
+				1DEC37C91E3D8A9300450357 /* MainViewController.swift in Sources */,
+				1D4ADF421F67B95C00F4F223 /* Foundation.swift in Sources */,
 				1D72D8B61E3DBD5300880CC4 /* CampaignDetailsViewController.swift in Sources */,
+				1D4ADF3A1F67B44C00F4F223 /* AdCampaign.swift in Sources */,
+				1D4ADF311F67AA8B00F4F223 /* SponsorManagerUtil.swift in Sources */,
+				1D4ADF2B1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift in Sources */,
 				1D4ADF291F67A28100F4F223 /* Config.swift in Sources */,
+				1D4ADF441F67BA5900F4F223 /* CauseCampaign.swift in Sources */,
 				1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */,
+				1D4ADF401F67B86000F4F223 /* Contributor.swift in Sources */,
+				1D4ADF3E1F67B7D300F4F223 /* Category.swift in Sources */,
+				1D4ADF2F1F67AA7100F4F223 /* DateISOManagerUtil.swift in Sources */,
+				1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */,
 				1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
