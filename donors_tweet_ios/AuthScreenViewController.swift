@@ -13,6 +13,9 @@ import TwitterKit
 
 class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     
+    var preferences = UserDefaults.standard
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +42,7 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                 //log in with Firebase
                 
                 let client = TWTRAPIClient.withCurrentUser()
+                let twitterId = session?.userID
                 
                 //get user email to insert it into firebase
                 client.requestEmail { email, error in
@@ -74,6 +78,11 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 
                                 
                                 print("Email updated successfully to ",email ?? "")
+                                
+                                let firebaseId = Auth.auth().currentUser?.uid
+                                
+                                //saving to user defaults
+                                self.saveToUserDefaults(firebaseId!, socialNetwork: "TWITTER", socialNetworkId: twitterId!)
                                 
                                 self.redirectUserToMain()
                                 
@@ -182,6 +191,8 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         guard let accessTokenString = accesstToken?.tokenString else { return }
         let credential = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
         
+        let facebookId = FBSDKAccessToken.current().userID!
+
         Auth.auth().signIn(with: credential) { (user, error) in
             if error != nil {
                 // ...
@@ -191,6 +202,11 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
             // User is signed in
             // ...
             print("User is logged in", user ?? "")
+            
+            let firebaseId = Auth.auth().currentUser?.uid
+            
+            self.saveToUserDefaults(firebaseId!, socialNetwork: "FACEBOOK", socialNetworkId: facebookId)
+            
             self.redirectUserToMain()
         }
     }
@@ -211,4 +227,28 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
         self.navigationController?.pushViewController(mainViewController, animated: true)
    }
+    
+    func saveToUserDefaults(_ firebaseId: String,socialNetwork: String,socialNetworkId: String){
+
+        preferences.setValue( firebaseId,forKey: "FIREBASE_ID")
+        
+        if socialNetwork == "TWITTER" {
+        
+            preferences.setValue(socialNetworkId , forKey: "TWITTER_ID")
+        
+        } else if socialNetworkId == "FACEBOOK"{
+            preferences.setValue(socialNetworkId , forKey: "FACEBOOK_ID")
+            
+        }
+        
+        //FOR DEBUGGING TO PRINT ALL THE CONTENT OF USER DEFAULTS TO SEE IF THE KEYS WERE SAVED CORRECTLY TO RECOVER THEM ON THE MAIN VIEW CONTROLLER
+        
+        
+//        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+//            print("\(key) = \(value) \n")
+//        }
+        
+        return
+
+    }
 }
