@@ -19,12 +19,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var serverFetchCampaignsUrl = "http://localhost:3000/api/campaigns/get/all"
     
     
+    
+    
     @IBOutlet weak var campaignTableView: UITableView!
+    
+    //show navigation controller bar
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //hide bar from navigation controller
+        self.navigationController?.isNavigationBarHidden = false
+
+        self.navigationItem.setHidesBackButton(true, animated: false)
+
         campaignTableView.delegate=self
         
         campaignTableView.dataSource=self

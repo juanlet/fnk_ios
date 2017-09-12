@@ -16,6 +16,9 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = true
+
+
         // Do any additional setup after loading the view.
         
         self.setupFacebookButtons()
@@ -68,7 +71,11 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                                     return
                                 }
                                 
+                                
+                                
                                 print("Email updated successfully to ",email ?? "")
+                                
+                                self.redirectUserToMain()
                                 
                             }
                         })
@@ -184,6 +191,7 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
             // User is signed in
             // ...
             print("User is logged in", user ?? "")
+            self.redirectUserToMain()
         }
     }
     //logs the user out of firebase
@@ -195,4 +203,12 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    func redirectUserToMain(){
+        //user is logged in, redirect to main View
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        self.navigationController?.pushViewController(mainViewController, animated: true)
+   }
 }
