@@ -230,14 +230,14 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func saveToUserDefaults(_ firebaseId: String,socialNetwork: String,socialNetworkId: String){
 
-        preferences.setValue( firebaseId,forKey: "FIREBASE_ID")
+        preferences.set( firebaseId,forKey: Config.Global._firebaseIdUserDefaults)
         
         if socialNetwork == "TWITTER" {
         
-            preferences.setValue(socialNetworkId , forKey: "TWITTER_ID")
+            preferences.set(socialNetworkId , forKey: Config.Global._twitterIdUserDefaults)
         
         } else if socialNetworkId == "FACEBOOK"{
-            preferences.setValue(socialNetworkId , forKey: "FACEBOOK_ID")
+            preferences.set(socialNetworkId , forKey: Config.Global._facebookIdUserDefaults)
             
         }
         

@@ -1,0 +1,9 @@
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Pkz-ni-fb5"; */
+"Pkz-ni-fb5.title" = "Atrás";
+
+/* Class = "UINavigationItem"; title = "Campaign Details"; ObjectID = "bkv-8B-goq"; */
+"bkv-8B-goq.title" = "Detalles de campaña";
+
+/* Class = "UINavigationItem"; title = "Campaign List"; ObjectID = "sOs-x0-j3E"; */
+"sOs-x0-j3E.title" = "Lista de campañas";

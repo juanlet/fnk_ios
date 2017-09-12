@@ -16,7 +16,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 
     var campaignRowsData  = ["Campaign 1","Campaign 2","Campaign 3'"]
     
-    var serverFetchCampaignsUrl = "http://localhost:3000/api/campaigns/get/all"
+    var serverFetchCampaignsUrl = Config.Global._serverUrl
     
     
     
@@ -25,6 +25,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //show navigation controller bar
     
+    var facebookID = "", twitterID = "",firebaseID = ""
     
     
     override func viewDidLoad() {
@@ -39,7 +40,31 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         campaignTableView.delegate=self
         
         campaignTableView.dataSource=self
+        
         getCampaignList()
+        
+        if let fbID = UserDefaults.standard.object(forKey: Config.Global._facebookIdUserDefaults) as? String {
+            facebookID = fbID
+        }else{
+            print("FACEBOOK ID IS NULL")
+        }
+        
+        
+        
+        if let twtID = UserDefaults.standard.object(forKey: Config.Global._twitterIdUserDefaults) as? String{
+            twitterID = twtID
+        }else{
+            print("TWITTER ID IS NULL")
+        }
+        
+        
+        if  let firID = UserDefaults.standard.object(forKey: Config.Global._firebaseIdUserDefaults) as? String{
+            firebaseID = firID
+        }else{
+            print("TWITTER ID IS NULL")
+        }
+        
+        print(facebookID, twitterID, firebaseID)
     }
     
     
