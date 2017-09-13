@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */; };
 		1D44C1DD1F62E74C00BC1186 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */; };
+		1D470D721F686C2100829042 /* CauseCampaignCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D470D711F686C2100829042 /* CauseCampaignCardView.swift */; };
 		1D4ADF291F67A28100F4F223 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF281F67A28100F4F223 /* Config.swift */; };
 		1D4ADF2B1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF2A1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift */; };
 		1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF2C1F67AA4800F4F223 /* CurrentUserUtil.swift */; };
@@ -35,6 +36,7 @@
 		1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
 		1D4010841F61A14E00D5B7CA /* donors_tweet_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = donors_tweet_ios.entitlements; sourceTree = "<group>"; };
 		1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1D470D711F686C2100829042 /* CauseCampaignCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseCampaignCardView.swift; sourceTree = "<group>"; };
 		1D4ADF231F679F0E00F4F223 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		1D4ADF241F679F0F00F4F223 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1D4ADF281F67A28100F4F223 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -76,6 +78,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D0F91851F688E7F00865F59 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC37CA1E3D8A9300450357 /* Main.storyboard */,
+				1DEC37CF1E3D8A9300450357 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		1D470D701F686B8400829042 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC37CD1E3D8A9300450357 /* Assets.xcassets */,
+				1D470D711F686C2100829042 /* CauseCampaignCardView.swift */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 		1D4ADF321F67AA9100F4F223 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +128,7 @@
 			name = Config;
 			sourceTree = "<group>";
 		};
-		1D4ADF351F67AAF300F4F223 /* src */ = {
+		1D4ADF351F67AAF300F4F223 /* Src */ = {
 			isa = PBXGroup;
 			children = (
 				1D4ADF361F67B30900F4F223 /* Models */,
@@ -116,7 +136,7 @@
 				1D4ADF321F67AA9100F4F223 /* Utils */,
 				1D4ADF331F67AAAC00F4F223 /* ViewControllers */,
 			);
-			name = src;
+			name = Src;
 			sourceTree = "<group>";
 		};
 		1D4ADF361F67B30900F4F223 /* Models */ = {
@@ -154,11 +174,10 @@
 		1DEC37C51E3D8A9300450357 /* donors_tweet_ios */ = {
 			isa = PBXGroup;
 			children = (
-				1D4ADF351F67AAF300F4F223 /* src */,
+				1D470D701F686B8400829042 /* UI */,
+				1D4ADF351F67AAF300F4F223 /* Src */,
 				1D4ADF341F67AACE00F4F223 /* Config */,
-				1DEC37CA1E3D8A9300450357 /* Main.storyboard */,
-				1DEC37CD1E3D8A9300450357 /* Assets.xcassets */,
-				1DEC37CF1E3D8A9300450357 /* LaunchScreen.storyboard */,
+				1D0F91851F688E7F00865F59 /* Storyboards */,
 			);
 			path = donors_tweet_ios;
 			sourceTree = "<group>";
@@ -328,6 +347,7 @@
 				1D4ADF3E1F67B7D300F4F223 /* Category.swift in Sources */,
 				1D4ADF2F1F67AA7100F4F223 /* DateISOManagerUtil.swift in Sources */,
 				1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */,
+				1D470D721F686C2100829042 /* CauseCampaignCardView.swift in Sources */,
 				1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

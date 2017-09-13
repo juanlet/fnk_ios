@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gke-w6-YLz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gke-w6-YLz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Campaign List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="donors_tweet_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="donors_tweet_ios" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -21,16 +21,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M9w-K6-e0g">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="197" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M9w-K6-e0g">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CampaignCell" id="Gs1-0Y-ojV">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="197" id="nER-kn-lHS">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gs1-0Y-ojV" id="fbm-v9-rMo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nER-kn-lHS" id="hJ1-g6-CSM" customClass="CauseCampaignCardView" customModule="donors_tweet_ios" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="196.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdf-jz-BZJ">
+                                                    <rect key="frame" x="30" y="34" width="124" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -42,17 +48,17 @@
                             <constraint firstItem="M9w-K6-e0g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TOB-lj-6JZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="M9w-K6-e0g" secondAttribute="bottom" id="bF2-KF-Bk4"/>
                             <constraint firstAttribute="trailing" secondItem="M9w-K6-e0g" secondAttribute="trailing" id="xq7-Ll-mSP"/>
-                            <constraint firstItem="M9w-K6-e0g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="yVi-gu-dzC"/>
+                            <constraint firstItem="M9w-K6-e0g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-93" id="yVi-gu-dzC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Campaign List" id="sOs-x0-j3E"/>
                     <connections>
-                        <outlet property="campaignTableView" destination="M9w-K6-e0g" id="KMj-lC-zeJ"/>
+                        <outlet property="campaignTableView" destination="M9w-K6-e0g" id="1yb-Pl-hDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2007" y="99"/>
+            <point key="canvasLocation" x="2005.5" y="98.5"/>
         </scene>
         <!--Campaign Details View Controller-->
         <scene sceneID="yMO-8f-j0g">

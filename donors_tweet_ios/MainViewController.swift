@@ -12,7 +12,7 @@ import SwiftyJSON
 import Firebase
 
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var campaignRowsData  = ["Campaign 1","Campaign 2","Campaign 3'"]
     
@@ -20,8 +20,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
-    
     @IBOutlet weak var campaignTableView: UITableView!
+
     
     //show navigation controller bar
     
@@ -33,21 +33,34 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Do any additional setup after loading the view, typically from a nib.
         
         //hide bar from navigation controller
-        self.navigationController?.isNavigationBarHidden = false
-
-        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        setToolbar()
 
         campaignTableView.delegate=self
         
         campaignTableView.dataSource=self
         
+        campaignTableView.separatorColor = UIColor(white: 0.95, alpha: 1)
+        
         recoverUserDefaults()
         
         getCampaignList()
         
-        print(facebookID, twitterID, firebaseID)
+        //print(facebookID, twitterID, firebaseID)
     }
     
+    
+    func setToolbar(){
+        //hide bar from navigation controller
+        self.navigationController?.isNavigationBarHidden = false
+        
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.purple
+        
+        
+        
+    }
     
     func getCampaignList(){
     

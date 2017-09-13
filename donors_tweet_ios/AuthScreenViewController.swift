@@ -23,6 +23,14 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
 
 
         // Do any additional setup after loading the view.
+        //check if user is logged in
+        Auth.auth().addStateDidChangeListener() { auth, user in
+            // 2
+            if user != nil {
+                // 3
+                self.redirectUserToMain()
+            }
+        }
         
         self.setupFacebookButtons()
         
