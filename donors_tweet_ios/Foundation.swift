@@ -9,11 +9,13 @@
 import UIKit
 
 class Foundation{
+    var id: String
     var twitterAccount:String
     var picPath:URL?
     var name:String
     
-    init(_ twitterAccount:String, picPath:String, name:String){
+    init(_ id:String, twitterAccount:String, picPath:String, name:String){
+        self.id = id
         self.twitterAccount = twitterAccount
         self.picPath = URL(string:picPath)
         self.name = name

@@ -75,10 +75,12 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 self.parseCampaignCausesListResponse(campaignCausesJSON)
                 
                 //alternative thread operation
-                //TODO:PUT IT IN ANOTHER THREAD
-                OperationQueue.addOperation({
+            
+                
+                DispatchQueue.global().async {
                     self.campaignTableView.reloadData()
-                })
+ 
+                }
                 
             case .failure(let error):
                 print(error)
@@ -108,48 +110,98 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
         //Parsing campaigns object array
-        
-        if let causesCampObjectArray = campaignCausesJSON["camp_array"].arrayObject {
-            //Now you got your value
-            //print(causesCampObjectArray)
+      
+          campaignCausesJSON["camp_array"].arrayValue.map({
             
-            for causeCampaign:AnyObject in causesCampObjectArray as [AnyObject]{
-                parseCampaign(causeCampaign)
-            }
-        }
+            let campaignCause:JSON = $0
+            
+             parseCampaign(campaignCause)
+          })
+            
+        
+
 
     }
     //TODO:CHANGE TO DATATAPE OBJECT
-    func parseCampaign(_ causeCampaign:AnyObject){
+    func parseCampaign(_ causeCampaign:JSON){
         
         let causeCampaignObject: CauseCampaign = CauseCampaign();
         
-        if let campaignEndingDate = causeCampaign["campaign_ending_date"] as? Date{
-            //Now you got your value
-            let formatter = ISO8601DateFormatter()
-            print(formatter.string(from: campaignEndingDate))
-            causeCampaignObject.campaignEndingDate = formatter.string(from: campaignEndingDate)
+        causeCampaignObject.description = causeCampaign["cause_description"].stringValue
+        
 
+        causeCampaignObject.id = causeCampaign["campaign_id"].stringValue
+
+        
+        if let contributorsQty = causeCampaign["contributors_qty"].int{
+            causeCampaignObject.contributorsQty = contributorsQty
+            
         }
+        
+        causeCampaignObject.currencySymbol = causeCampaign["currency_symbol"].stringValue
+        
+        if let currentContributions = causeCampaign["current_contributions"].float{
+            causeCampaignObject.currentContributions = currentContributions
+            
+        }
+        
+        if let goal = causeCampaign["goal"].float {
+            causeCampaignObject.goal = goal
+        }
+        
+        if let goalPercentageAchieved = causeCampaign["goal_percentage_achieved"].float{
+            causeCampaignObject.goalPercentageAchieved = causeCampaign["goal_percentage_achieved"].float!
+        }
+   
+        causeCampaignObject.hashtag = causeCampaign["hashtag"].stringValue
+
+        causeCampaignObject.name = causeCampaign["name"].stringValue
+        
+        if let remainingAmmountToGoal = causeCampaign["remaining_ammount_to_goal"].float{
+            causeCampaignObject.remainingAmmountToGoal = remainingAmmountToGoal
+        }
+        
+        if let picUrl =  causeCampaign["pic_url"].stringValue as? String {
+            causeCampaignObject.picUrl = picUrl
+        }
+        
+        if let campaignStartingDate = causeCampaign["created_at"].string{
+            causeCampaignObject.campaignStartingDate = campaignStartingDate
+        }
+        
+        if let campaignEndingDate = causeCampaign["campaign_ending_date"].string{
+            causeCampaignObject.campaignEndingDate = campaignEndingDate
+            
+        }
+        
+        
+        var foundationsArray = [Foundation]()
+
+        causeCampaign["foundations"].arrayValue.map({
+            
+            let id = $0["foundation_id"].stringValue
+            let twitterUsername = $0["twitter_username"].stringValue
+            let picPath = $0["pic_path"].stringValue
+            let name = $0["name"].stringValue
+            
+            let foundation:Foundation = Foundation(id,twitterAccount: twitterUsername,picPath: picPath,name: name)
+            
+            foundationsArray.append(foundation)
+        })
+
+        
+        causeCampaignObject.foundations = foundationsArray
+        
         
         campaignRowsData.append(causeCampaignObject)
         
-//        "campaign_ending_date" = "2019-07-08T00:00:00-03:00";
-//        "campaign_id" = 60;
-//        "cause_description" = "descripcion causa imp1";
-//        "contributors_qty" = 1;
-//        "created_at" = "2017-08-25T01:24:32.681072-03:00";
-//        "currency_symbol" = "$";
-//        "current_contributions" = 0;
 //        foundations = "<null>";
-//        goal = 30000;
-//        "goal_percentage_achieved" = 0;
-//        hashtag = "#imp1";
-//        name = imp1;
-//        "pic_url" = "http://lorempixel.com/640/480";
-//        "remaining_ammount_to_goal" = 0;
-//        "tweet_id" = 900936910494810112;
+
+//innecesario
+//        SACAR DE LA REQUEST INICIAL???
 //        "went_inactive_date" = "<null>";
+//        "tweet_id" = 900936910494810112;
+
     
     }
     
