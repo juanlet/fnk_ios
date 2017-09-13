@@ -19,6 +19,10 @@ class CurrentUserUtil {
     
     static var firebaseId:String = ""
     
+    static var twitterId:String = ""
+    
+    static var facebookId:String = ""
+    
     static var contributorUserId:String = ""
     
     static var millisecondsTillNextClick:Int = 0

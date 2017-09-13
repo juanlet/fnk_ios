@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class CauseCampaignCardView: UIView {
+@IBDesignable class CauseCampaignCardView: UITableViewCell {
 
  //card used on
     @IBInspectable var cornerradius : CGFloat = 2
@@ -21,6 +21,19 @@ import UIKit
  
     @IBInspectable var shadowOpacity : CGFloat = 0.5
 
+     
+    @IBOutlet weak var foundationNameLabel: UILabel!
+    
+    @IBOutlet weak var causeCampaignDescriptionLabel: UILabel!
+    
+    
+    @IBOutlet weak var raisedAmmountOverTotalLabel: UILabel!
+    
+    @IBOutlet weak var daysToFinishLabel: UILabel!
+    
+    @IBOutlet weak var percentageCompletedLabel: UILabel!
+    
+    @IBOutlet weak var causeCampaingImageView: UIImageView!
 
     override func layoutSubviews() {
         layer.cornerRadius = cornerradius

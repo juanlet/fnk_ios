@@ -240,13 +240,17 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
 
         preferences.set( firebaseId,forKey: Config.Global._firebaseIdUserDefaults)
         
+        CurrentUserUtil.firebaseId = firebaseId
+        
         if socialNetwork == "TWITTER" {
         
             preferences.set(socialNetworkId , forKey: Config.Global._twitterIdUserDefaults)
         
+        CurrentUserUtil.twitterId = socialNetworkId
+        
         } else if socialNetworkId == "FACEBOOK"{
             preferences.set(socialNetworkId , forKey: Config.Global._facebookIdUserDefaults)
-            
+         CurrentUserUtil.facebookId = socialNetworkId
         }
         
         //FOR DEBUGGING TO PRINT ALL THE CONTENT OF USER DEFAULTS TO SEE IF THE KEYS WERE SAVED CORRECTLY TO RECOVER THEM ON THE MAIN VIEW CONTROLLER
