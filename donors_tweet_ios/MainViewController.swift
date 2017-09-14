@@ -258,9 +258,15 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }else{
             
-        cell.daysToFinishLabel.text = String(describing: daysLeft)
+        cell.daysToFinishLabel.text = "\(String(describing: daysLeft)) días restantes"
         
         }
+        
+        let currentContributions = String(campaignCause.currentContributions)
+        let goal = String(campaignCause.goal)
+        let currencySymbol = campaignCause.currencySymbol
+        
+        cell.raisedOverTotalLabel.text = "\(currencySymbol) \(currentContributions) alcanzado de \(currencySymbol) \(goal)"
        
         
         
