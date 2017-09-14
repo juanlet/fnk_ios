@@ -11,25 +11,25 @@ import UIKit
 class DateISOManagerUtil {
     
     //retuurns -1 if the date is null
-    static func differenceOfDaysWithToday(_ isoDate:String)->Any {
+    static func differenceOfDaysWithToday(_ isoDateString:String)->Int {
     
-        var dateNil = false
-        var result:Int = -1
+        
+        //convert to ISO DATE
+        let isoformatter = ISO8601DateFormatter.init()
 
-        
-        if let dateString = isoDate as String?{
-            
-            if (!dateString.isEmpty && !dateNil) {
-                result = 0
-            } else {
-                result = -1
-            }
-            
-        }else{
-            dateNil =  true
+        guard let finishDate = isoformatter.date(from: isoDateString) else{
+            return -1
         }
-    
+
+
+        let calendar = Calendar.current
         
+        let numberOfDaysLeft = calendar.dateComponents([.day], from: Date(), to: finishDate)
+
+        let result =  numberOfDaysLeft.day!
+        
+     
+    
         return result
     
     }

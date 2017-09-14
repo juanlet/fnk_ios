@@ -25,24 +25,18 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="278" id="nER-kn-lHS" customClass="CauseCampaignCardView" customModule="donors_tweet_ios">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="campaignCell" rowHeight="278" id="nER-kn-lHS" customClass="MainViewControllerTableViewCell" customModule="donors_tweet_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="278"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="nER-kn-lHS" id="hJ1-g6-CSM">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nER-kn-lHS" id="hJ1-g6-CSM">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="277.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdf-jz-BZJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="126" id="Dra-T1-t8e"/>
-                                                        <constraint firstAttribute="width" constant="126" id="H9G-yV-AKh"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="126" id="fAz-Y4-Y7Q"/>
-                                                        <constraint firstAttribute="height" constant="126" id="xMg-5W-vlm"/>
-                                                    </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh6-gm-Nb4">
-                                                    <rect key="frame" x="37" y="170" width="42" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh6-gm-Nb4" userLabel="Cause Name">
+                                                    <rect key="frame" x="37" y="163" width="314" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -88,16 +82,20 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="causeCampaignDescription" destination="Hh6-gm-Nb4" id="ej8-z8-IML"/>
-                                            <outlet property="causeCampaingImageView" destination="zdf-jz-BZJ" id="mPn-Fb-oLP"/>
-                                            <outlet property="daysToFinishLabel" destination="sV3-mY-2Xx" id="dKb-M2-4s2"/>
-                                            <outlet property="foundationName" destination="oTw-Wa-hGu" id="b88-Kc-hAZ"/>
-                                            <outlet property="percentageCompletedLabel" destination="i0l-Jw-5km" id="edq-JE-o9u"/>
-                                            <outlet property="raisedOverTotalLabel" destination="bBa-H2-MU2" id="fC3-8a-IEv"/>
+                                            <outlet property="causeCampaignImageView" destination="zdf-jz-BZJ" id="qFR-K3-Cqp"/>
+                                            <outlet property="causeCampaignName" destination="Hh6-gm-Nb4" id="seA-RV-IL9"/>
+                                            <outlet property="daysToFinishLabel" destination="sV3-mY-2Xx" id="MqZ-G2-qZq"/>
+                                            <outlet property="goalProgresView" destination="ymr-cP-wCq" id="Jq2-1b-T6Z"/>
+                                            <outlet property="percentageCompletedLabel" destination="i0l-Jw-5km" id="Zv5-10-Pq1"/>
+                                            <outlet property="raisedOverTotalLabel" destination="bBa-H2-MU2" id="OGF-uH-jA5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Nbu-cm-4rb"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8yR-7g-La7"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

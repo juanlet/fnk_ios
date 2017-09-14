@@ -46,6 +46,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         getCampaignList()
         
+
+        
         //print(facebookID, twitterID, firebaseID)
         
     }
@@ -77,7 +79,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 //alternative thread operation
             
                 
-                DispatchQueue.global().async {
+                DispatchQueue.main.async {
                     self.campaignTableView.reloadData()
  
                 }
@@ -215,12 +217,53 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
-       let cell = campaignTableView.dequeueReusableCell(withIdentifier: "CampaignCell") as! CauseCampaignCardView
+       let cell = campaignTableView.dequeueReusableCell(withIdentifier: "campaignCell", for: indexPath) as! MainViewControllerTableViewCell
         
     //setting card attributes
-        
+        print("ROW",campaignRowsData[indexPath.row].description)
         let campaignCause:CauseCampaign = campaignRowsData[indexPath.row]
-        cell.daysToFinishLabel!.text = campaignCause.campaignEndingDate
+        
+        if let name = campaignCause.name as? String{
+                cell.causeCampaignName.text = name
+        } else {
+            print("Campaign name null")
+        }
+        
+        if let imageUrlString = campaignCause.picUrl as? String{
+           //donwload images async
+            let url = URL(string: imageUrlString)
+            
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                DispatchQueue.main.async {
+                    cell.causeCampaignImageView.image = UIImage(data: data!)
+                }
+            }
+            
+        } else {
+            print("Image path null")
+        }
+        
+        if let percentageAchieved = campaignCause.goalPercentageAchieved as? Float{
+            print("PERCENTAGE", percentageAchieved)
+            cell.percentageCompletedLabel.text = String(describing: percentageAchieved)
+        }else{
+            print("Goal Percentage achieved null")
+        }
+        
+        let daysLeft = DateISOManagerUtil.differenceOfDaysWithToday(campaignCause.campaignEndingDate)
+        
+        if(daysLeft == -1){
+        print("Incorrect Date or campaign with no ending date")
+            
+        }else{
+            
+        cell.daysToFinishLabel.text = String(describing: daysLeft)
+        
+        }
+       
+        
+        
         
         return cell
     }

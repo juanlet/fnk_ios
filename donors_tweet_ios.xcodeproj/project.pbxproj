@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */; };
 		1D44C1DD1F62E74C00BC1186 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */; };
-		1D470D721F686C2100829042 /* CauseCampaignCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D470D711F686C2100829042 /* CauseCampaignCardView.swift */; };
 		1D4ADF291F67A28100F4F223 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF281F67A28100F4F223 /* Config.swift */; };
 		1D4ADF2B1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF2A1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift */; };
 		1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF2C1F67AA4800F4F223 /* CurrentUserUtil.swift */; };
@@ -24,6 +23,7 @@
 		1D4ADF441F67BA5900F4F223 /* CauseCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF431F67BA5900F4F223 /* CauseCampaign.swift */; };
 		1D605A6E1F63A4F200A50681 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D605A6D1F63A4F200A50681 /* SafariServices.framework */; };
 		1D72D8B61E3DBD5300880CC4 /* CampaignDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */; };
+		1D8A11E21F69D5DF0013011A /* MainViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */; };
 		1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C61E3D8A9300450357 /* AppDelegate.swift */; };
 		1DEC37C91E3D8A9300450357 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C81E3D8A9300450357 /* MainViewController.swift */; };
 		1DEC37CC1E3D8A9300450357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC37CA1E3D8A9300450357 /* Main.storyboard */; };
@@ -36,7 +36,6 @@
 		1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
 		1D4010841F61A14E00D5B7CA /* donors_tweet_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = donors_tweet_ios.entitlements; sourceTree = "<group>"; };
 		1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		1D470D711F686C2100829042 /* CauseCampaignCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseCampaignCardView.swift; sourceTree = "<group>"; };
 		1D4ADF231F679F0E00F4F223 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
 		1D4ADF241F679F0F00F4F223 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1D4ADF281F67A28100F4F223 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		1D4ADF431F67BA5900F4F223 /* CauseCampaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseCampaign.swift; sourceTree = "<group>"; };
 		1D605A6D1F63A4F200A50681 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignDetailsViewController.swift; sourceTree = "<group>"; };
+		1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		1DEC37C31E3D8A9300450357 /* donors_tweet_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = donors_tweet_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEC37C61E3D8A9300450357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DEC37C81E3D8A9300450357 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 		1D470D701F686B8400829042 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */,
 				1DEC37CD1E3D8A9300450357 /* Assets.xcassets */,
-				1D470D711F686C2100829042 /* CauseCampaignCardView.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -333,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D4ADF381F67B31B00F4F223 /* Sponsor.swift in Sources */,
+				1D8A11E21F69D5DF0013011A /* MainViewControllerTableViewCell.swift in Sources */,
 				1D4ADF3C1F67B4AF00F4F223 /* Video.swift in Sources */,
 				1DEC37C91E3D8A9300450357 /* MainViewController.swift in Sources */,
 				1D4ADF421F67B95C00F4F223 /* Foundation.swift in Sources */,
@@ -347,7 +348,6 @@
 				1D4ADF3E1F67B7D300F4F223 /* Category.swift in Sources */,
 				1D4ADF2F1F67AA7100F4F223 /* DateISOManagerUtil.swift in Sources */,
 				1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */,
-				1D470D721F686C2100829042 /* CauseCampaignCardView.swift in Sources */,
 				1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
