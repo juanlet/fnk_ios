@@ -89,6 +89,7 @@
                                             <outlet property="goalProgresView" destination="ymr-cP-wCq" id="Jq2-1b-T6Z"/>
                                             <outlet property="percentageCompletedLabel" destination="i0l-Jw-5km" id="Zv5-10-Pq1"/>
                                             <outlet property="raisedOverTotalLabel" destination="bBa-H2-MU2" id="OGF-uH-jA5"/>
+                                            <segue destination="Bw3-Y8-rGX" kind="show" identifier="causeCampaignDetailSegue" id="cJ6-70-Qas"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -147,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hyf-rA-f1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2737" y="99"/>
+            <point key="canvasLocation" x="3118" y="98"/>
         </scene>
         <!--Auth Screen View Controller-->
         <scene sceneID="iWu-7n-4xS">

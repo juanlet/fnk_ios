@@ -21,12 +21,14 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     @IBOutlet weak var campaignTableView: UITableView!
-
     
     //show navigation controller bar
     
     var facebookID = "", twitterID = "",firebaseID = ""
     
+    let causeCampaignDetailsSegueIdentifier = "causeCampaignDetailSegue"
+
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -214,6 +216,16 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return campaignRowsData.count
 
     }
+   
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if  segue.identifier == causeCampaignDetailsSegueIdentifier,
+            let destination = segue.destination as? CampaignDetailsViewController,
+            let campaignCellIndex = campaignTableView.indexPathForSelectedRow?.row
+        {
+            destination.causeCampaignId = campaignRowsData[campaignCellIndex].id
+        }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
@@ -300,6 +312,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         if let twtID = UserDefaults.standard.object(forKey: Config.Global._twitterIdUserDefaults) as? String{
             twitterID = twtID
+             CurrentUserUtil.twitterId = twitterID
         }else{
             print("TWITTER ID IS NULL")
         }
@@ -307,6 +320,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         if  let firID = UserDefaults.standard.object(forKey: Config.Global._firebaseIdUserDefaults) as? String{
             firebaseID = firID
+             CurrentUserUtil.firebaseId = firebaseID
         }else{
             print("TWITTER ID IS NULL")
         }
