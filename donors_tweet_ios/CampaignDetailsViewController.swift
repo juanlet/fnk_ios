@@ -17,6 +17,21 @@ class CampaignDetailsViewController: UIViewController {
 
     var causeCampaignId : String!
     
+    
+    @IBOutlet weak var contributorsQtyLabel: UILabel!
+    
+    @IBOutlet weak var totalUsersReachedLabel: UILabel!
+    
+    @IBOutlet weak var totalRaisedLabel: UILabel!
+    
+    @IBOutlet weak var causeCampaignNameLabel: UILabel!
+    
+    @IBOutlet weak var goalLabel: UILabel!
+    
+    @IBOutlet weak var goalPercentageAchievedLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(causeCampaignId)
@@ -35,7 +50,7 @@ class CampaignDetailsViewController: UIViewController {
                 
                 let campaignCauseDetailsJSON = JSON(campaignCausesData: data)
                 
-                 self.parseCampaignCauseDetailsResponse(campaignCauseDetailsJSON)
+                self.parseCampaignCauseDetailsResponse(campaignCauseDetailsJSON)
                 
                 
             case .failure(let error):
@@ -50,12 +65,43 @@ class CampaignDetailsViewController: UIViewController {
     func parseCampaignCauseDetailsResponse(_ campaignCauseDetailsJSON:JSON){
         
         
-        if let name = campaignCauseDetailsJSON["name"].string {
-            //Now you got your value
-            print("NAME",name)
+        let campaignCauseDetails = campaignCauseDetailsJSON["data"]
+        
+        if let name = campaignCauseDetails["name"].string {
             //set label
+            causeCampaignNameLabel.text = name
             
         }
+        
+        if let totalContributors = campaignCauseDetails["contributors_qty"].string{
+            contributorsQtyLabel.text = totalContributors
+        }
+        
+        if let totalUniqueUsersReached = campaignCauseDetails["total_unique_users_reached"].string{
+            totalUsersReachedLabel.text = totalUniqueUsersReached
+        }
+        
+        if let currencySymbol = campaignCauseDetails["currency_symbol"].string{
+          
+             if let totalRaised = campaignCauseDetails["current_contributions"].string{
+             
+                totalRaisedLabel.text = "\(currencySymbol) \(totalRaised)"
+                
+            }
+            
+            if let goal = campaignCauseDetails["goal"].string{
+                
+                goalLabel.text = "\(currencySymbol) \(goal)"
+            }
+
+        }
+        
+        if let goalPercentageAchieved = campaignCauseDetails["goal_percentage_achieved"].string{
+            
+            goalPercentageAchievedLabel.text = "%\(goalPercentageAchieved)"
+        }
+        
+        
     }
 
 }
