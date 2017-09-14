@@ -11,6 +11,7 @@ import UIKit
 class MainViewControllerTableViewCell: UITableViewCell {
     
     
+    @IBOutlet weak var foundationNamesLabel: UILabel!
     
   
     @IBOutlet weak var causeCampaignName: UILabel!

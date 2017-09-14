@@ -220,15 +220,16 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
        let cell = campaignTableView.dequeueReusableCell(withIdentifier: "campaignCell", for: indexPath) as! MainViewControllerTableViewCell
         
     //setting card attributes
-        print("ROW",campaignRowsData[indexPath.row].description)
         let campaignCause:CauseCampaign = campaignRowsData[indexPath.row]
         
+        //cause campaign label
         if let name = campaignCause.name as? String{
                 cell.causeCampaignName.text = name
         } else {
             print("Campaign name null")
         }
         
+        //image view
         if let imageUrlString = campaignCause.picUrl as? String{
            //donwload images async
             let url = URL(string: imageUrlString)
@@ -244,6 +245,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             print("Image path null")
         }
         
+        //goal percentage label
         if let percentageAchieved = campaignCause.goalPercentageAchieved as? Float{
             print("PERCENTAGE", percentageAchieved)
             cell.percentageCompletedLabel.text = String(describing: percentageAchieved)
@@ -251,25 +253,38 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             print("Goal Percentage achieved null")
         }
         
+        
+        //days left label
         let daysLeft = DateISOManagerUtil.differenceOfDaysWithToday(campaignCause.campaignEndingDate)
         
         if(daysLeft == -1){
         print("Incorrect Date or campaign with no ending date")
-            
+        cell.daysToFinishLabel.text = ""
         }else{
             
         cell.daysToFinishLabel.text = "\(String(describing: daysLeft)) días restantes"
         
         }
         
+        
+        //raised over total label
         let currentContributions = String(campaignCause.currentContributions)
         let goal = String(campaignCause.goal)
         let currencySymbol = campaignCause.currencySymbol
         
         cell.raisedOverTotalLabel.text = "\(currencySymbol) \(currentContributions) alcanzado de \(currencySymbol) \(goal)"
        
+        cell.goalProgresView.setProgress(campaignCause.goalPercentageAchieved, animated: true)
+
+        //Foundation names label
         
+        var foundationNamesString = ""
         
+        for foundation in campaignCause.foundations {
+            foundationNamesString += foundation.name
+        }
+        
+        cell.foundationNamesLabel.text = foundationNamesString
         
         return cell
     }
