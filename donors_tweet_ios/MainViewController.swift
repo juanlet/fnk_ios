@@ -247,7 +247,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         //goal percentage label
         if let percentageAchieved = campaignCause.goalPercentageAchieved as? Float{
-            print("PERCENTAGE", percentageAchieved)
             cell.percentageCompletedLabel.text = String(describing: percentageAchieved)
         }else{
             print("Goal Percentage achieved null")
