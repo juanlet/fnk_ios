@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="278" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M9w-K6-e0g">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="campaignCell" rowHeight="278" id="nER-kn-lHS" customClass="MainViewControllerTableViewCell" customModule="donors_tweet_ios" customModuleProvider="target">
@@ -108,6 +108,7 @@
                             <constraint firstItem="M9w-K6-e0g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-93" id="yVi-gu-dzC"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="f0p-TV-vVa"/>
                     <navigationItem key="navigationItem" title="Campaign List" id="sOs-x0-j3E"/>
                     <connections>
                         <outlet property="campaignTableView" destination="M9w-K6-e0g" id="1yb-Pl-hDv"/>
@@ -115,7 +116,64 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004" y="97.601199400299862"/>
+            <point key="canvasLocation" x="2948" y="72"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="OMY-pQ-Xw3">
+            <objects>
+                <viewController id="y2t-5y-wEx" customClass="FoundationsViewController" customModule="donors_tweet_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Y2-QL-Fjq"/>
+                        <viewControllerLayoutGuide type="bottom" id="zSJ-f0-HeK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q39-sH-eFr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="gIL-AC-ytb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBX-Dh-YUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2105" y="1075"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="RFA-Ib-uVO">
+            <objects>
+                <viewController id="lyx-bK-UGq" customClass="SponsorsViewController" customModule="donors_tweet_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wpJ-d2-JnW"/>
+                        <viewControllerLayoutGuide type="bottom" id="rqv-T7-V67"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3z7-eb-DXX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="oyR-iF-TkZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p0e-bj-NXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3012" y="1075"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="dva-eP-sKl">
+            <objects>
+                <viewController id="524-oV-XUt" customClass="TopFundkersViewController" customModule="donors_tweet_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BKB-0n-tHi"/>
+                        <viewControllerLayoutGuide type="bottom" id="lgW-Qx-SD0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gCn-kW-ia0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="AEa-yI-ZOP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="flx-PK-CWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3874" y="1075"/>
         </scene>
         <!--Campaign Details View Controller-->
         <scene sceneID="yMO-8f-j0g">
@@ -301,7 +359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hyf-rA-f1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3117.5999999999999" y="97.601199400299862"/>
+            <point key="canvasLocation" x="4056.8000000000002" y="97.601199400299862"/>
         </scene>
         <!--Auth Screen View Controller-->
         <scene sceneID="iWu-7n-4xS">
@@ -318,7 +376,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vmR-JH-WTM"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="ISf-ti-FAs"/>
+                        <segue destination="ygO-Vu-t6K" kind="show" id="ISf-ti-FAs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tUS-Aj-cMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -342,6 +400,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brT-aH-kxi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="188" y="99.400299850074973"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="N8I-yn-Fvm">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ygO-Vu-t6K" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="lJq-jd-wkz">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="CyR-aW-C5h"/>
+                        <segue destination="y2t-5y-wEx" kind="relationship" relationship="viewControllers" id="9Bp-iW-UP4"/>
+                        <segue destination="lyx-bK-UGq" kind="relationship" relationship="viewControllers" id="KSP-w3-puQ"/>
+                        <segue destination="524-oV-XUt" kind="relationship" relationship="viewControllers" id="5wf-Bp-VuX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LAe-Dm-mp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2062" y="73"/>
         </scene>
     </scenes>
 </document>

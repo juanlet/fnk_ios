@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D23561B1F6F893200549523 /* FoundationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23561A1F6F893200549523 /* FoundationsViewController.swift */; };
+		1D23561D1F6F894B00549523 /* SponsorsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23561C1F6F894B00549523 /* SponsorsViewController.swift */; };
+		1D23561F1F6F895F00549523 /* TopFundkersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D23561E1F6F895F00549523 /* TopFundkersViewController.swift */; };
 		1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */; };
 		1D44C1DD1F62E74C00BC1186 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */; };
 		1D4ADF291F67A28100F4F223 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF281F67A28100F4F223 /* Config.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D23561A1F6F893200549523 /* FoundationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationsViewController.swift; sourceTree = "<group>"; };
+		1D23561C1F6F894B00549523 /* SponsorsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorsViewController.swift; sourceTree = "<group>"; };
+		1D23561E1F6F895F00549523 /* TopFundkersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopFundkersViewController.swift; sourceTree = "<group>"; };
 		1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthScreenViewController.swift; sourceTree = "<group>"; };
 		1D4010841F61A14E00D5B7CA /* donors_tweet_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = donors_tweet_ios.entitlements; sourceTree = "<group>"; };
 		1D44C1DC1F62E74C00BC1186 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -113,6 +119,9 @@
 				1DEC37C81E3D8A9300450357 /* MainViewController.swift */,
 				1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */,
 				1D4010821F619A0500D5B7CA /* AuthScreenViewController.swift */,
+				1D23561A1F6F893200549523 /* FoundationsViewController.swift */,
+				1D23561C1F6F894B00549523 /* SponsorsViewController.swift */,
+				1D23561E1F6F895F00549523 /* TopFundkersViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -343,10 +352,13 @@
 				1D4ADF2B1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift in Sources */,
 				1D4ADF291F67A28100F4F223 /* Config.swift in Sources */,
 				1D4ADF441F67BA5900F4F223 /* CauseCampaign.swift in Sources */,
+				1D23561B1F6F893200549523 /* FoundationsViewController.swift in Sources */,
 				1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */,
+				1D23561F1F6F895F00549523 /* TopFundkersViewController.swift in Sources */,
 				1D4ADF401F67B86000F4F223 /* Contributor.swift in Sources */,
 				1D4ADF3E1F67B7D300F4F223 /* Category.swift in Sources */,
 				1D4ADF2F1F67AA7100F4F223 /* DateISOManagerUtil.swift in Sources */,
+				1D23561D1F6F894B00549523 /* SponsorsViewController.swift in Sources */,
 				1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */,
 				1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */,
 			);
