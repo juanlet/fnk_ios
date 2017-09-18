@@ -17,6 +17,8 @@ class CurrentUserUtil {
     
     static var twitterFollowersCount:Int = 0
     
+    static var facebookFollowersCount:Int = 0
+    
     static var firebaseId:String = ""
     
     static var twitterId:String = ""
@@ -28,5 +30,10 @@ class CurrentUserUtil {
     static var millisecondsTillNextClick:Int = 0
     
     static var twitterUserName:String = ""
+    
+    static func getTotalFollowersAllNetworks() -> Int{
+        //TODO:FACEBOOK FOLLOWERS STILL NOT BEING CALCULATED ON THE BACKEND, SO IT's 0 FOR NOW
+        return twitterFollowersCount + facebookFollowersCount
+    }
     
 }

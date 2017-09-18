@@ -30,13 +30,30 @@ class CampaignDetailsViewController: UIViewController {
     
     @IBOutlet weak var goalPercentageAchievedLabel: UILabel!
     
+    //sponsor ad section
     
+    @IBOutlet weak var sponsorNameLabel: UILabel!
+    
+    @IBOutlet weak var sponsorTwitterNameLabel: UILabel!
+    
+    @IBOutlet weak var sponsorLogoImageView: UIImageView!
+    
+    @IBOutlet weak var adTextLabel: UILabel!
+    
+    
+    @IBOutlet weak var adVideoThumbnailImageView: UIImageView!
+    
+    @IBOutlet weak var adVideoNameLabel: UILabel!
+    
+    @IBOutlet weak var adVideoDescriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(causeCampaignId)
         
         fetchCauseCampaignData()
+        
+        fetchSponsorAd()
         
         
     }
@@ -61,8 +78,9 @@ class CampaignDetailsViewController: UIViewController {
         
         
     }
+    
 
-    func parseCampaignCauseDetailsResponse(_ campaignCauseDetailsJSON:JSON){
+    func parseCampaignCauseDetailsResponse(_ campaignCauseDetailsJSON: JSON){
         
         
         let campaignCauseDetails = campaignCauseDetailsJSON["data"]
@@ -101,6 +119,87 @@ class CampaignDetailsViewController: UIViewController {
             goalPercentageAchievedLabel.text = "%\(goalPercentageAchieved)"
         }
         
+        
+    }
+    
+    
+    func fetchSponsorAd(){
+        
+        //
+        Alamofire.request(serverFetchCampaignsUrl+"/sponsors/get/sponsor/followers/\(CurrentUserUtil.getTotalFollowersAllNetworks())", method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                
+                
+                let sponsorAdJSON = JSON(sponsorAdData: data)
+                
+                self.parseSponsorAdResponse(sponsorAdJSON)
+                
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
+    func parseSponsorAdResponse(_ sponsorAdJSON: JSON){
+        
+        let adCampaignData = sponsorAdJSON["data"]
+        
+        print(adCampaignData)
+        
+        
+         //sponsor data
+        
+        let sponsorTwitterUsername =  adCampaignData["twitter_username"].stringValue
+        
+        
+        sponsorTwitterNameLabel.text = sponsorTwitterUsername != "" ?  sponsorTwitterUsername : ""
+        
+        let sponsorName = adCampaignData["name"].stringValue
+        sponsorNameLabel.text = sponsorName != "" ? sponsorName : ""
+        
+        let sponsor_id = adCampaignData["sponsor_id"].stringValue
+        
+        let allTimeUsersReached = adCampaignData["all_time_users_reached"].int
+        
+        let sponsorPicUrl = URL(string: adCampaignData["pic_url"].stringValue)
+            
+    
+        
+         //ad
+        
+         let ad = adCampaignData["ad"]
+        
+         let sponsorAdId = ad["sponsor_ad_id"].stringValue
+        
+        let bannerUrlString = ad["banner_url"].stringValue
+        
+        let bannerUrl: URL? = bannerUrlString != "" ? URL(string: bannerUrlString) : nil
+        
+        
+        let videoUrlString = ad["video_url"].stringValue
+        let videoUrl: URL? = videoUrlString != "" ? URL(string: videoUrlString ) : nil
+        let tweetTextContent = ad["text"].stringValue
+        
+        
+         //youtube video data
+        
+         let video = adCampaignData["youtube_video"]
+        
+         let videoTitle = video["title"].stringValue
+         let videoDescription = video["description"].stringValue
+         let videoThumbnailUrlString = video["thumbnail"]["url"].stringValue
+         let videoThumbnailUrl:URL = videoThumbnailUrlString != "" ? URL(string: videoThumbnailUrlString) : nil
+         let videoWidth = video["thumbnail"]["width"].int
+         let videoHeight = video["thumbnail"]["height"].int
+        
+        
+         
+         
+
+
         
     }
 
