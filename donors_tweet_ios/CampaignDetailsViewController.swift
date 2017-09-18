@@ -47,6 +47,11 @@ class CampaignDetailsViewController: UIViewController {
     
     @IBOutlet weak var adVideoDescriptionLabel: UILabel!
     
+    //last contributors section
+    
+    @IBOutlet weak var lastContributorsView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(causeCampaignId)
@@ -55,6 +60,7 @@ class CampaignDetailsViewController: UIViewController {
         
         fetchSponsorAd()
         
+        fetchLastContributorsData()
         
     }
     
@@ -147,8 +153,6 @@ class CampaignDetailsViewController: UIViewController {
         
         let adCampaignData = sponsorAdJSON["data"]
         
-        print(adCampaignData)
-        
         
          //sponsor data
         
@@ -227,6 +231,58 @@ class CampaignDetailsViewController: UIViewController {
         
     }
     
+    func fetchLastContributorsData(){
+        
+        Alamofire.request(serverFetchCampaignsUrl+"/campaigns/get/contributors/\(causeCampaignId!)", method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                
+                
+                let lastContributorsJSON = JSON(lastContributorsData: data)
+                
+                self.parseLastContributorsDataResponse(lastContributorsJSON)
+                
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
+    func parseLastContributorsDataResponse(_ contributorsData:JSON){
+        
+        let totalContributorsCampaign = contributorsData["total_contributors_campaign"]
+        
+        contributorsData["contributors"].arrayValue.map({
+            
+            let contributorProfileImageUrlString = $0["profile_image_url"].stringValue
+            
+            let contributorProfileImageUrl:URL? =  contributorProfileImageUrlString != "" ? URL(string:contributorProfileImageUrlString) : nil
+            
+            let contributorFollowersCount = $0["followers_count"].stringValue
+            
+            //create label and bubble
+            
+            let lastContributorLabel = UILabel()
+            
+            lastContributorLabel.text = "\(contributorFollowersCount) alcance"
+            
+            lastContributorsView.addSubview(lastContributorLabel)
+            
+//            NSLayoutConstraint.activate([
+//                lastContributorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//                lastContributorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//                lastContributorLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
+//                lastContributorLabel.heightAnchor.constraint(equalToConstant: 50)])
+            
+            print(contributorFollowersCount,contributorProfileImageUrlString)
+            
+            
+            
+        })
+        
+    }
     
     
     func setImageViewAsync(_ imageUrl:URL, imageView:UIImageView){

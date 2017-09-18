@@ -208,6 +208,13 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WFq-bk-cT1">
                                 <rect key="frame" x="0.0" y="511" width="375" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gQU-oT-osm">
+                                        <rect key="frame" x="0.0" y="-17" width="375" height="173"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R4u-Xi-WNj">
@@ -284,6 +291,7 @@
                         <outlet property="contributorsQtyLabel" destination="MBb-ad-E1m" id="EQD-dB-Qk7"/>
                         <outlet property="goalLabel" destination="hoI-Kz-GSZ" id="owD-vp-cwK"/>
                         <outlet property="goalPercentageAchievedLabel" destination="UUc-el-CMB" id="kJh-ij-PMj"/>
+                        <outlet property="lastContributorsView" destination="WFq-bk-cT1" id="H9D-HM-g91"/>
                         <outlet property="sponsorLogoImageView" destination="7Ja-XQ-r2f" id="wh6-HW-i1y"/>
                         <outlet property="sponsorNameLabel" destination="KOs-eJ-syw" id="E02-Rn-AWD"/>
                         <outlet property="sponsorTwitterNameLabel" destination="ALY-6u-xAk" id="eT1-Se-gUp"/>
