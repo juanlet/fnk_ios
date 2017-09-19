@@ -244,6 +244,9 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //image view
         if let imageUrlString = campaignCause.picUrl as? String{
            //donwload images async
+            
+            if(imageUrlString != nil){
+            
             let url = URL(string: imageUrlString)
             
             DispatchQueue.global().async {
@@ -251,6 +254,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 DispatchQueue.main.async {
                     cell.causeCampaignImageView.image = UIImage(data: data!)
                 }
+            }
             }
             
         } else {

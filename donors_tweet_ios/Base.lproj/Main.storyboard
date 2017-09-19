@@ -118,6 +118,26 @@
             </objects>
             <point key="canvasLocation" x="2948" y="72"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="G1E-HF-cUZ">
+            <objects>
+                <tabBarController id="J5h-0o-ygO" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="2PB-HU-ROk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="lhI-at-TUV"/>
+                        <segue destination="y2t-5y-wEx" kind="relationship" relationship="viewControllers" id="ZZU-ct-B6J"/>
+                        <segue destination="lyx-bK-UGq" kind="relationship" relationship="viewControllers" id="FPC-nk-Icw"/>
+                        <segue destination="524-oV-XUt" kind="relationship" relationship="viewControllers" id="j2A-wI-glu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qfc-7H-CfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="825" y="833"/>
+        </scene>
         <!--Item-->
         <scene sceneID="OMY-pQ-Xw3">
             <objects>
@@ -376,12 +396,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="vmR-JH-WTM"/>
                     <connections>
-                        <segue destination="ygO-Vu-t6K" kind="show" id="ISf-ti-FAs"/>
+                        <segue destination="BYZ-38-t0r" kind="show" id="OEO-cf-E1Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tUS-Aj-cMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1127" y="85"/>
+            <point key="canvasLocation" x="1290" y="98"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="d0N-ev-Xxg">
@@ -401,26 +421,8 @@
             </objects>
             <point key="canvasLocation" x="188" y="99.400299850074973"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="N8I-yn-Fvm">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="ygO-Vu-t6K" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="lJq-jd-wkz">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="CyR-aW-C5h"/>
-                        <segue destination="y2t-5y-wEx" kind="relationship" relationship="viewControllers" id="9Bp-iW-UP4"/>
-                        <segue destination="lyx-bK-UGq" kind="relationship" relationship="viewControllers" id="KSP-w3-puQ"/>
-                        <segue destination="524-oV-XUt" kind="relationship" relationship="viewControllers" id="5wf-Bp-VuX"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LAe-Dm-mp3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2070" y="85"/>
-        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OEO-cf-E1Q"/>
+    </inferredMetricsTieBreakers>
 </document>
