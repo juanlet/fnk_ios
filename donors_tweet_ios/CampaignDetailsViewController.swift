@@ -174,13 +174,8 @@ class CampaignDetailsViewController: UIViewController {
         
         
         let sponsorPicUrlString = adCampaignData["pic_url"].stringValue
-        let sponsorPicUrl = URL(string: sponsorPicUrlString)
         
-        if(sponsorPicUrl != nil){
-             self.setImageViewAsync(sponsorPicUrl!, imageView: sponsorLogoImageView)
-        }
-        
-        
+             UIGeneralHelperFunctionsUtil.setImageViewAsync(sponsorPicUrlString, imageView: sponsorLogoImageView)
         
          //ad
         
@@ -215,11 +210,8 @@ class CampaignDetailsViewController: UIViewController {
         
          let videoThumbnailUrlString = video["thumbnail"]["url"].stringValue
         
-         let videoThumbnailUrl:URL? = videoThumbnailUrlString != "" ? URL(string: videoThumbnailUrlString) : nil
+         UIGeneralHelperFunctionsUtil.setImageViewAsync(videoThumbnailUrlString, imageView: adVideoThumbnailImageView)
         
-        if videoThumbnailUrl != nil{
-         self.setImageViewAsync(videoThumbnailUrl!, imageView: adVideoThumbnailImageView)
-        }
          let videoWidth = video["thumbnail"]["width"].int
          let videoHeight = video["thumbnail"]["height"].int
         
@@ -281,18 +273,6 @@ class CampaignDetailsViewController: UIViewController {
             
             
         })
-        
-    }
-    
-    
-    func setImageViewAsync(_ imageUrl:URL, imageView:UIImageView){
-        
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: imageUrl) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            DispatchQueue.main.async {
-                imageView.image = UIImage(data: data!)
-            }
-        }
         
     }
 

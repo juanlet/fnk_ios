@@ -25,8 +25,10 @@
 		1D4ADF421F67B95C00F4F223 /* Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF411F67B95C00F4F223 /* Foundation.swift */; };
 		1D4ADF441F67BA5900F4F223 /* CauseCampaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4ADF431F67BA5900F4F223 /* CauseCampaign.swift */; };
 		1D605A6E1F63A4F200A50681 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D605A6D1F63A4F200A50681 /* SafariServices.framework */; };
+		1D7274E61F7221F8008A91EA /* FoundationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7274E51F7221F8008A91EA /* FoundationTableViewCell.swift */; };
 		1D72D8B61E3DBD5300880CC4 /* CampaignDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */; };
 		1D8A11E21F69D5DF0013011A /* MainViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */; };
+		1DB2CC981F72258E009C3913 /* UIHelperFunctionsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2CC971F72258E009C3913 /* UIHelperFunctionsUtil.swift */; };
 		1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C61E3D8A9300450357 /* AppDelegate.swift */; };
 		1DEC37C91E3D8A9300450357 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C81E3D8A9300450357 /* MainViewController.swift */; };
 		1DEC37CC1E3D8A9300450357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC37CA1E3D8A9300450357 /* Main.storyboard */; };
@@ -57,8 +59,10 @@
 		1D4ADF411F67B95C00F4F223 /* Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Foundation.swift; sourceTree = "<group>"; };
 		1D4ADF431F67BA5900F4F223 /* CauseCampaign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseCampaign.swift; sourceTree = "<group>"; };
 		1D605A6D1F63A4F200A50681 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		1D7274E51F7221F8008A91EA /* FoundationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoundationTableViewCell.swift; sourceTree = "<group>"; };
 		1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignDetailsViewController.swift; sourceTree = "<group>"; };
 		1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewCell.swift; sourceTree = "<group>"; };
+		1DB2CC971F72258E009C3913 /* UIHelperFunctionsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelperFunctionsUtil.swift; sourceTree = "<group>"; };
 		1DEC37C31E3D8A9300450357 /* donors_tweet_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = donors_tweet_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEC37C61E3D8A9300450357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DEC37C81E3D8A9300450357 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 		1D470D701F686B8400829042 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1D7274E51F7221F8008A91EA /* FoundationTableViewCell.swift */,
 				1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */,
 				1DEC37CD1E3D8A9300450357 /* Assets.xcassets */,
 			);
@@ -109,6 +114,7 @@
 				1D4ADF2C1F67AA4800F4F223 /* CurrentUserUtil.swift */,
 				1D4ADF2E1F67AA7100F4F223 /* DateISOManagerUtil.swift */,
 				1D4ADF301F67AA8B00F4F223 /* SponsorManagerUtil.swift */,
+				1DB2CC971F72258E009C3913 /* UIHelperFunctionsUtil.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				1D4ADF311F67AA8B00F4F223 /* SponsorManagerUtil.swift in Sources */,
 				1D4ADF2B1F67AA0400F4F223 /* CampaignsGlobalDataManagerUtil.swift in Sources */,
 				1D4ADF291F67A28100F4F223 /* Config.swift in Sources */,
+				1D7274E61F7221F8008A91EA /* FoundationTableViewCell.swift in Sources */,
 				1D4ADF441F67BA5900F4F223 /* CauseCampaign.swift in Sources */,
 				1D23561B1F6F893200549523 /* FoundationsViewController.swift in Sources */,
 				1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */,
@@ -359,6 +366,7 @@
 				1D4ADF3E1F67B7D300F4F223 /* Category.swift in Sources */,
 				1D4ADF2F1F67AA7100F4F223 /* DateISOManagerUtil.swift in Sources */,
 				1D23561D1F6F894B00549523 /* SponsorsViewController.swift in Sources */,
+				1DB2CC981F72258E009C3913 /* UIHelperFunctionsUtil.swift in Sources */,
 				1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */,
 				1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */,
 			);

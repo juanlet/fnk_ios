@@ -11,10 +11,14 @@ import Alamofire
 import SwiftyJSON
 import Firebase
 
-class FoundationsViewController: UIViewController {
+class FoundationsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var serverFetchCampaignsUrl = Config.Global._serverUrl
-
+    var foundationsArray = [JSON]()
+    
+    @IBOutlet weak var foundationsTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchFoundations()
@@ -41,6 +45,16 @@ class FoundationsViewController: UIViewController {
     
     func parseFoundationsDataResponse(_ foundationsListDataJSON:JSON){
         
+        
+        foundationsArray = foundationsListDataJSON["rows"].arrayValue
+        
+        //ESSENTIAL TO SHOW THE DATA ON TABLEVIEW, OTHERWISE IT DOESN'T SHOW ANYTHING SINCE THE FIRST TIME TABLE VIEW METHODS EXECUTE FOUNDATIONS ARRAY DOESN'T HAVE ANY DATA
+        print("FOUNDATIONS_AMMOUNT",foundationsArray.count)
+        DispatchQueue.main.async {
+            self.foundationsTableView.reloadData()
+            
+        }
+        
 //        {
 //            rows: [
 //            {
@@ -64,6 +78,46 @@ class FoundationsViewController: UIViewController {
 //            ]
 //        }
     
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return foundationsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let cell = foundationsTableView.dequeueReusableCell(withIdentifier: "foundationCell", for: indexPath) as! FoundationTableViewCell
+        
+        //setting card attributes
+        let foundation = foundationsArray[indexPath.row]
+    
+        let foundationPicUrlString = foundation["pic_path"].stringValue
+        
+        //cause campaign label
+        if let foundationPicUrlString = foundation["pic_path"].stringValue as? String{
+            UIGeneralHelperFunctionsUtil.setImageViewAsync(foundationPicUrlString, imageView: cell.foundationLogoImageView)
+        } else {
+            print("Foundation logo url null")
+        }
+        
+        //cause campaign label
+        if let foundationName = foundation["name"].stringValue as? String{
+            cell.foundationNameLabel.text = foundationName
+        } else {
+            print("Foundation name null")
+        }
+        
+        //cause campaign label
+        if let foundationTwitterUsername = foundation["twitter_username"].stringValue as? String{
+            cell.foundationTwitterUsernameLabel.text = foundationTwitterUsername
+        } else {
+            print("Foundation twitter username null")
+        }
+        
+        
+        return cell
+        
     }
     
 

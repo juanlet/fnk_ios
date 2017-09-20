@@ -244,18 +244,10 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //image view
         if let imageUrlString = campaignCause.picUrl as? String{
            //donwload images async
+         
+                
+            UIGeneralHelperFunctionsUtil.setImageViewAsync(imageUrlString, imageView: cell.causeCampaignImageView)
             
-            if(imageUrlString != nil){
-            
-            let url = URL(string: imageUrlString)
-            
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-                DispatchQueue.main.async {
-                    cell.causeCampaignImageView.image = UIImage(data: data!)
-                }
-            }
-            }
             
         } else {
             print("Image path null")
