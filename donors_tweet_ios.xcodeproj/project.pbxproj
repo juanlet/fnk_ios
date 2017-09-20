@@ -30,6 +30,7 @@
 		1D8A11E21F69D5DF0013011A /* MainViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */; };
 		1DB2CC981F72258E009C3913 /* UIHelperFunctionsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2CC971F72258E009C3913 /* UIHelperFunctionsUtil.swift */; };
 		1DB2CC9A1F72327B009C3913 /* SponsorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2CC991F72327B009C3913 /* SponsorTableViewCell.swift */; };
+		1DB2CC9E1F723929009C3913 /* FundkerRankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2CC9D1F723929009C3913 /* FundkerRankTableViewCell.swift */; };
 		1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C61E3D8A9300450357 /* AppDelegate.swift */; };
 		1DEC37C91E3D8A9300450357 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C81E3D8A9300450357 /* MainViewController.swift */; };
 		1DEC37CC1E3D8A9300450357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC37CA1E3D8A9300450357 /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		1DB2CC971F72258E009C3913 /* UIHelperFunctionsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelperFunctionsUtil.swift; sourceTree = "<group>"; };
 		1DB2CC991F72327B009C3913 /* SponsorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorTableViewCell.swift; sourceTree = "<group>"; };
+		1DB2CC9D1F723929009C3913 /* FundkerRankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FundkerRankTableViewCell.swift; sourceTree = "<group>"; };
 		1DEC37C31E3D8A9300450357 /* donors_tweet_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = donors_tweet_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEC37C61E3D8A9300450357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DEC37C81E3D8A9300450357 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */,
 				1DEC37CD1E3D8A9300450357 /* Assets.xcassets */,
 				1DB2CC991F72327B009C3913 /* SponsorTableViewCell.swift */,
+				1DB2CC9D1F723929009C3913 /* FundkerRankTableViewCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				1DB2CC981F72258E009C3913 /* UIHelperFunctionsUtil.swift in Sources */,
 				1D4ADF2D1F67AA4800F4F223 /* CurrentUserUtil.swift in Sources */,
 				1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */,
+				1DB2CC9E1F723929009C3913 /* FundkerRankTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

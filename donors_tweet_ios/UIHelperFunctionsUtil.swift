@@ -17,7 +17,7 @@ class UIGeneralHelperFunctionsUtil {
         
         let imageUrl:URL? = imageUrlString != "" ? URL(string: imageUrlString) : nil
         
-        if imageUrl != nil{
+        if (imageUrl != nil && self.verifyUrl(imageUrlString))  {
 
             DispatchQueue.global().async {
                 let data = try? Data(contentsOf: imageUrl!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
@@ -30,5 +30,14 @@ class UIGeneralHelperFunctionsUtil {
         
         }
     
+    //verifies if it's a valid url
+    static func verifyUrl(_ urlString: String?) -> Bool {
+        if let urlString = urlString {
+            if let url = URL(string: urlString) {
+                return UIApplication.shared.canOpenURL(url)
+            }
+        }
+        return false
+    }
     
 }
