@@ -91,12 +91,10 @@ class FoundationsViewController: UIViewController,UITableViewDelegate,UITableVie
         
         //setting card attributes
         let foundation = foundationsArray[indexPath.row]
-    
-        let foundationPicUrlString = foundation["pic_path"].stringValue
-        
+            
         //cause campaign label
-        if let foundationPicUrlString = foundation["pic_path"].stringValue as? String{
-            UIGeneralHelperFunctionsUtil.setImageViewAsync(foundationPicUrlString, imageView: cell.foundationLogoImageView)
+        if let foundationLogoUrlString = foundation["pic_path"].stringValue as? String{
+            UIGeneralHelperFunctionsUtil.setImageViewAsync(foundationLogoUrlString, imageView: cell.foundationLogoImageView)
         } else {
             print("Foundation logo url null")
         }

@@ -11,9 +11,13 @@ import Alamofire
 import SwiftyJSON
 import Firebase
 
-class SponsorsViewController: UIViewController {
+class SponsorsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var serverFetchCampaignsUrl = Config.Global._serverUrl
+    var sponsorsArray = [JSON]()
+    
+    
+    @IBOutlet weak var sponsorsTableView: UITableView!
 
 
     override func viewDidLoad() {
@@ -41,6 +45,18 @@ class SponsorsViewController: UIViewController {
     }
     
     func parseSponsorsDataResponse(_ sponsorsListDataJSON:JSON){
+        
+        
+        
+        sponsorsArray = sponsorsListDataJSON["rows"].arrayValue
+        
+        //ESSENTIAL TO SHOW THE DATA ON TABLEVIEW, OTHERWISE IT DOESN'T SHOW ANYTHING SINCE THE FIRST TIME TABLE VIEW METHODS EXECUTE SPONSORS ARRAY DOESN'T HAVE ANY DATA
+        print("Sponsors_AMMOUNT",sponsorsArray.count)
+        DispatchQueue.main.async {
+            self.sponsorsTableView.reloadData()
+            
+        }
+        
         
 //        {
 //            rows: [
@@ -146,5 +162,48 @@ class SponsorsViewController: UIViewController {
 //        }
         
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sponsorsArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        let cell = sponsorsTableView.dequeueReusableCell(withIdentifier: "sponsorCell", for: indexPath) as! SponsorTableViewCell
+        
+        //setting card attributes
+        let sponsor = sponsorsArray[indexPath.row]
+        
+        //cause campaign label
+        if let sponsorLogoUrlString = sponsor["pic_url"].stringValue as? String{
+            UIGeneralHelperFunctionsUtil.setImageViewAsync(sponsorLogoUrlString, imageView: cell.sponsorLogoImageView)
+        } else {
+            print("Sponsor logo url null")
+        }
+        
+        //cause campaign label
+        if let sponsorName = sponsor["name"].stringValue as? String{
+            cell.sponsorNameLabel.text = sponsorName
+        } else {
+            print("Sponsor name null")
+        }
+        
+        //cause campaign label
+        if let sponsorTwitterUsername = sponsor["twitter_username"].stringValue as? String{
+            cell.sponsorTwitterUserNameLabel.text = sponsorTwitterUsername
+        } else {
+            print("Sponsor twitter username null")
+        }
+        
+        let allTimeUsersReachedQty = sponsor["all_time_users_reached"].stringValue
+        
+        cell.allTimeUsersReachedLabel.text = allTimeUsersReachedQty
+        
+        return cell
+        
+    }
+
+    
 
 }

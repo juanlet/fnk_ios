@@ -29,6 +29,7 @@
 		1D72D8B61E3DBD5300880CC4 /* CampaignDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */; };
 		1D8A11E21F69D5DF0013011A /* MainViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */; };
 		1DB2CC981F72258E009C3913 /* UIHelperFunctionsUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2CC971F72258E009C3913 /* UIHelperFunctionsUtil.swift */; };
+		1DB2CC9A1F72327B009C3913 /* SponsorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB2CC991F72327B009C3913 /* SponsorTableViewCell.swift */; };
 		1DEC37C71E3D8A9300450357 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C61E3D8A9300450357 /* AppDelegate.swift */; };
 		1DEC37C91E3D8A9300450357 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEC37C81E3D8A9300450357 /* MainViewController.swift */; };
 		1DEC37CC1E3D8A9300450357 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DEC37CA1E3D8A9300450357 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		1D72D8B51E3DBD5300880CC4 /* CampaignDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CampaignDetailsViewController.swift; sourceTree = "<group>"; };
 		1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerTableViewCell.swift; sourceTree = "<group>"; };
 		1DB2CC971F72258E009C3913 /* UIHelperFunctionsUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIHelperFunctionsUtil.swift; sourceTree = "<group>"; };
+		1DB2CC991F72327B009C3913 /* SponsorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SponsorTableViewCell.swift; sourceTree = "<group>"; };
 		1DEC37C31E3D8A9300450357 /* donors_tweet_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = donors_tweet_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DEC37C61E3D8A9300450357 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DEC37C81E3D8A9300450357 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				1D7274E51F7221F8008A91EA /* FoundationTableViewCell.swift */,
 				1D8A11E11F69D5DF0013011A /* MainViewControllerTableViewCell.swift */,
 				1DEC37CD1E3D8A9300450357 /* Assets.xcassets */,
+				1DB2CC991F72327B009C3913 /* SponsorTableViewCell.swift */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				1D4ADF441F67BA5900F4F223 /* CauseCampaign.swift in Sources */,
 				1D23561B1F6F893200549523 /* FoundationsViewController.swift in Sources */,
 				1D4010831F619A0500D5B7CA /* AuthScreenViewController.swift in Sources */,
+				1DB2CC9A1F72327B009C3913 /* SponsorTableViewCell.swift in Sources */,
 				1D23561F1F6F895F00549523 /* TopFundkersViewController.swift in Sources */,
 				1D4ADF401F67B86000F4F223 /* Contributor.swift in Sources */,
 				1D4ADF3E1F67B7D300F4F223 /* Category.swift in Sources */,
