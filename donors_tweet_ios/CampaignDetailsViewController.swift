@@ -52,6 +52,12 @@ class CampaignDetailsViewController: UIViewController {
     @IBOutlet weak var lastContributorsView: UIView!
     
     
+    @IBAction func onClickShareButton(_ sender: Any) {
+        
+        print("Hola")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(causeCampaignId)

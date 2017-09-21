@@ -67,28 +67,28 @@ class TopFundkersViewController: UIViewController, UITableViewDelegate,UITableVi
             if( userPosition! > 10){
                 
                 
-                if let userRank =  user?["rank"].stringValue as? String{
+                if let userRank =  user?["rank"].stringValue{
                     userRankLabel.text = userRank
                 }else{
                     print("user rank is null")
                 }
                 
                 //cause campaign label
-                if let userLogoUrlString = user?["profile_image_url"].stringValue as? String{
+                if let userLogoUrlString = user?["profile_image_url"].stringValue{
                     UIGeneralHelperFunctionsUtil.setImageViewAsync(userLogoUrlString, imageView: userProfilePicImageView)
                 } else {
                     print("user profile pic url null")
                 }
                 
                 //cause campaign label
-                if let userTwitterUsername = user?["screen_name"].stringValue as? String{
+                if let userTwitterUsername = user?["screen_name"].stringValue{
                     userTwitterUsernameLabel.text = userTwitterUsername
                 } else {
                     print("user twitter username null")
                 }
                 
                 //cause campaign label
-                if let userContributionsCount = user?["contributions_count"].stringValue as? String{
+                if let userContributionsCount = user?["contributions_count"].stringValue{
                     userContributionsLabel.text = userContributionsCount
                 } else {
                     print("User contributions null")

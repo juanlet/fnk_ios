@@ -232,8 +232,9 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
         //user is logged in, redirect to main View
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-        self.navigationController?.pushViewController(mainViewController, animated: true)
+        
+        let mainTabBarController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
+         self.navigationController?.pushViewController(mainTabBarController, animated: true)
    }
     
     func saveToUserDefaults(_ firebaseId: String,socialNetwork: String,socialNetworkId: String){

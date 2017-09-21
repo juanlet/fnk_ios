@@ -101,14 +101,16 @@ class FoundationsViewController: UIViewController,UITableViewDelegate,UITableVie
         
         //cause campaign label
         if let foundationName = foundation["name"].stringValue as? String{
-            cell.foundationNameLabel.text = foundationName
+            cell.foundationNameLabel.text = foundation["name"].stringValue
         } else {
             print("Foundation name null")
         }
         
         //cause campaign label
         if let foundationTwitterUsername = foundation["twitter_username"].stringValue as? String{
+           
             cell.foundationTwitterUsernameLabel.text = foundationTwitterUsername
+            
         } else {
             print("Foundation twitter username null")
         }
