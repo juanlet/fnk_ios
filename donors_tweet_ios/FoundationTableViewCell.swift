@@ -14,8 +14,9 @@ class  FoundationTableViewCell:UITableViewCell {
     @IBOutlet weak var foundationLogoImageView: UIImageView!
     
  
-    @IBOutlet weak var foundationTwitterUsernameLabel: UILabel!
     
+    
+    @IBOutlet weak var foundationTwitterUsernameLabel: UILabel!
     
     @IBOutlet weak var foundationNameLabel: UILabel!
 
