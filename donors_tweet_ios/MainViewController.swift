@@ -18,6 +18,7 @@ import TwitterKit
 class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     var campaignRowsData  = [CauseCampaign]()
+    var categoriesArray = [Any]()
     
     var serverFetchCampaignsUrl = Config.Global._serverUrl
     
@@ -71,12 +72,45 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         getCampaignList()
         
+        getCategoriesList()
 
         
         //print(facebookID, twitterID, firebaseID)
         
     }
     
+    private func getCategoriesList(){
+        
+        Alamofire.request(serverFetchCampaignsUrl+"/campaigns/get/categories/all", method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                
+                
+                let categoriesListJSON = JSON(data)
+                
+                self.parseCategories(categoriesListJSON)
+                
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
+    
+    private func parseCategories(_ categoriesListJSON:JSON){
+        
+        categoriesArray = categoriesListJSON["data"].arrayValue
+        var a=1
+        
+//        go over the categories
+        categoriesArray.map({
+            
+            print($0)
+            
+        })
+        
+    }
     
     func setToolbar(){
         //hide bar from navigation controller
