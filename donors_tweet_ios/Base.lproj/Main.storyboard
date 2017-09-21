@@ -573,6 +573,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8y-9z-MEN" userLabel="Timer Label">
+                                <rect key="frame" x="142" y="202" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -594,6 +601,7 @@
                         <outlet property="sponsorLogoImageView" destination="7Ja-XQ-r2f" id="wh6-HW-i1y"/>
                         <outlet property="sponsorNameLabel" destination="KOs-eJ-syw" id="E02-Rn-AWD"/>
                         <outlet property="sponsorTwitterNameLabel" destination="ALY-6u-xAk" id="eT1-Se-gUp"/>
+                        <outlet property="timeLeftTillNextClickLabel" destination="r8y-9z-MEN" id="h7N-AR-Y4S"/>
                         <outlet property="totalRaisedLabel" destination="4Jc-Gf-JM8" id="fSV-MJ-3wP"/>
                         <outlet property="totalUsersReachedLabel" destination="nh0-wc-nuj" id="3L8-gH-M9q"/>
                     </connections>

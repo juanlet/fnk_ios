@@ -52,6 +52,7 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                 let client = TWTRAPIClient.withCurrentUser()
                 let twitterId = session?.userID
                 
+                
                 //get user email to insert it into firebase
                 client.requestEmail { email, error in
                     if (//email != nil  activate once the app is whitelisted to get emails providing terms and conditions to twitter
@@ -61,7 +62,12 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                         
                         //get the token and the user's secret from twitter's login response
                         guard let token = session?.authToken else { return }
+                        
                         guard let secret = session?.authTokenSecret else { return }
+                        
+                        CurrentUserUtil.twitterAccessToken = token
+                        CurrentUserUtil.twitterAccessTokenSecret = secret
+                        
                         
                         let credentials = TwitterAuthProvider.credential(withToken: token, secret: secret)
                         //create firebase user
@@ -71,6 +77,10 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 print("Failed to login to Firebase with Twitter: ", err)
                                 return
                             }
+                            
+                            let twitterDisplayName = Auth.auth().currentUser?.displayName
+                            
+                            CurrentUserUtil.twitterDisplayName = twitterDisplayName!
                             
                             print("Successfully created a Firebase-Twitter user: ",user?.uid ?? "")
                             

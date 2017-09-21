@@ -42,7 +42,7 @@ class TopFundkersViewController: UIViewController, UITableViewDelegate,UITableVi
             case .success(let data):
                 
                 
-                let topFundkersDataJSON = JSON(topFundkersData: data)
+                let topFundkersDataJSON = JSON(data)
                 
                 self.parseTopFundkersDataResponse(topFundkersDataJSON)
                 

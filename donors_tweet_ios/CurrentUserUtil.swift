@@ -31,6 +31,12 @@ class CurrentUserUtil {
     
     static var twitterUserName:String = ""
     
+    static var twitterAccessToken:String = ""
+    
+    static var twitterAccessTokenSecret:String = ""
+    
+    static var twitterDisplayName:String = ""
+    
     static func getTotalFollowersAllNetworks() -> Int{
         //TODO:FACEBOOK FOLLOWERS STILL NOT BEING CALCULATED ON THE BACKEND, SO IT's 0 FOR NOW
         return twitterFollowersCount + facebookFollowersCount

@@ -17,6 +17,10 @@ class CampaignDetailsViewController: UIViewController {
 
     var causeCampaignId : String!
     
+    var sponsorId:String? = nil
+    
+    var sponsorAdId:String? = nil
+    
     
     @IBOutlet weak var contributorsQtyLabel: UILabel!
     
@@ -51,12 +55,18 @@ class CampaignDetailsViewController: UIViewController {
     
     @IBOutlet weak var lastContributorsView: UIView!
     
+
+    @IBOutlet weak var timeLeftTillNextClickLabel: UILabel!
     
-    @IBAction func onClickShareButton(_ sender: Any) {
+    
+    
+    @IBAction func onClickShareButton(_ sender: Any){
         
+           //propagates the campaign to social networks currently associated to the user
+           shareCauseCampaignToSocialNetworks()
      
     
-    }
+        }
     
     
     override func viewDidLoad() {
@@ -78,7 +88,7 @@ class CampaignDetailsViewController: UIViewController {
             case .success(let data):
                 
                 
-                let campaignCauseDetailsJSON = JSON(campaignCausesData: data)
+                let campaignCauseDetailsJSON = JSON(data)
                 
                 self.parseCampaignCauseDetailsResponse(campaignCauseDetailsJSON)
                 
@@ -144,7 +154,7 @@ class CampaignDetailsViewController: UIViewController {
             case .success(let data):
                 
                 
-                let sponsorAdJSON = JSON(sponsorAdData: data)
+                let sponsorAdJSON = JSON(data)
                 
                 self.parseSponsorAdResponse(sponsorAdJSON)
                 
@@ -172,7 +182,7 @@ class CampaignDetailsViewController: UIViewController {
         
         sponsorNameLabel.text = sponsorName != "" ? sponsorName : ""
         
-        let sponsor_id = adCampaignData["sponsor_id"].stringValue
+         sponsorId = adCampaignData["sponsor_id"].stringValue
         
         
         
@@ -188,7 +198,7 @@ class CampaignDetailsViewController: UIViewController {
         
         let ad = adCampaignData["ad"]
         
-        let sponsorAdId = ad["sponsor_ad_id"].stringValue
+        sponsorAdId = ad["sponsor_ad_id"].stringValue
         
         let bannerUrlString = ad["banner_url"].stringValue
         
@@ -237,7 +247,7 @@ class CampaignDetailsViewController: UIViewController {
             case .success(let data):
                 
                 
-                let lastContributorsJSON = JSON(lastContributorsData: data)
+                let lastContributorsJSON = JSON(data)
                 
                 self.parseLastContributorsDataResponse(lastContributorsJSON)
                 
@@ -269,17 +279,53 @@ class CampaignDetailsViewController: UIViewController {
             
             lastContributorsView.addSubview(lastContributorLabel)
             
-//            NSLayoutConstraint.activate([
-//                lastContributorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-//                lastContributorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//                lastContributorLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7),
-//                lastContributorLabel.heightAnchor.constraint(equalToConstant: 50)])
             
             print(contributorFollowersCount,contributorProfileImageUrlString)
             
             
             
         })
+        
+    }
+    
+    private func shareCauseCampaignToSocialNetworks(){
+       
+        let params = buildParamsForPostingToSocialNetworks()
+        
+        Alamofire.request(serverFetchCampaignsUrl+"/api/twitter/post", method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
+            
+            if let socialNetworkResponsedata = response.data {
+                let socialNetworksPostResponseJSON = JSON(socialNetworkResponsedata)
+
+                self.parseSocialNetworksPostResponse(socialNetworksPostResponseJSON)
+            }
+        }
+    }
+    
+    private func buildParamsForPostingToSocialNetworks()->[String: Any]{
+        
+        //TODO:Change mail to a variable when twitter white list out app
+        let params: [String: Any] = ["access_token": CurrentUserUtil.twitterAccessToken,
+                      "access_token_secret": CurrentUserUtil.twitterAccessTokenSecret,
+                      "campaign_id": self.causeCampaignId,
+                      "sponsor_ad_id":self.sponsorAdId,
+                      "sponsor_id": self.sponsorId,
+                      "twitter_display_name":CurrentUserUtil.twitterDisplayName,
+                      "twitter_user_id":CurrentUserUtil.twitterId,
+                      "twitter_username":CurrentUserUtil.twitterUserName,
+                      "twitter_email":"a@a",
+                      "twitter_photo_url":CurrentUserUtil.twitterPicUrl!,
+                      "firebase_user_id":CurrentUserUtil.firebaseId,
+                      "user_twitter_followers_qty": CurrentUserUtil.twitterFollowersCount
+           ]
+    
+        return params
+    }
+    
+    private func parseSocialNetworksPostResponse(_ socialNetworksPostResponseJSON:JSON){
+        
+        
+       // let responseCode = socialNetworksPostResponseJSON["code"].stringValue
         
     }
 

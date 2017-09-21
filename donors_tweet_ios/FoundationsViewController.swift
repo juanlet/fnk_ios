@@ -31,7 +31,7 @@ class FoundationsViewController: UIViewController,UITableViewDelegate,UITableVie
             case .success(let data):
                 
                 
-                let foundationsListDataJSON = JSON(foundationsListData: data)
+                let foundationsListDataJSON = JSON(data)
                 
                 self.parseFoundationsDataResponse(foundationsListDataJSON)
                 

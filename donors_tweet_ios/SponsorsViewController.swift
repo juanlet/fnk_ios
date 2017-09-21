@@ -32,7 +32,7 @@ class SponsorsViewController: UIViewController,UITableViewDelegate,UITableViewDa
             case .success(let data):
                 
                 
-                let sponsorsListDataJSON = JSON(sponsorsListData: data)
+                let sponsorsListDataJSON = JSON(data)
                 
                 self.parseSponsorsDataResponse(sponsorsListDataJSON)
                 

@@ -97,7 +97,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             case .success(let data):
 
                 
-                let campaignCausesJSON = JSON(campaignCausesData: data)
+                let campaignCausesJSON = JSON(data)
                 
                 self.parseCampaignCausesListResponse(campaignCausesJSON)
                 
