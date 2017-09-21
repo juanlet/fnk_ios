@@ -54,7 +54,8 @@ class CampaignDetailsViewController: UIViewController {
     
     @IBAction func onClickShareButton(_ sender: Any) {
         
-        print("Hola")
+     
+    
     }
     
     

@@ -101,6 +101,14 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		1D1EE85F1F742D1400D794C4 /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				1DEC37C61E3D8A9300450357 /* AppDelegate.swift */,
+			);
+			name = delegates;
+			sourceTree = "<group>";
+		};
 		1D470D701F686B8400829042 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				1D4ADF361F67B30900F4F223 /* Models */,
-				1DEC37C61E3D8A9300450357 /* AppDelegate.swift */,
+				1D1EE85F1F742D1400D794C4 /* delegates */,
 				1D4ADF321F67AA9100F4F223 /* Utils */,
 				1D4ADF331F67AAAC00F4F223 /* ViewControllers */,
 			);

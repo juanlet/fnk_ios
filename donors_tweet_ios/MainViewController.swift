@@ -10,6 +10,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Firebase
+import FBSDKLoginKit
+import TwitterKit
+
 
 
 class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
@@ -18,7 +21,27 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     var serverFetchCampaignsUrl = Config.Global._serverUrl
     
-    
+    @IBAction func onLogoutButtonClick(_ sender: Any) {
+        
+        if (Auth.auth().currentUser != nil){
+            //user is signed in
+            
+            do{
+                
+                try? Auth.auth().signOut()
+                logOutUserFromAllSocialNetworks()
+                redirectUserToLogin()
+                
+            }catch let error as Error {
+                print(error.localizedDescription)
+            }
+            
+            print("user logged out correctly")
+        }else{
+            //user is not signed in, is this neccesary or the listener is going to take care of it??
+            redirectUserToLogin()
+        }
+    }
     
     @IBOutlet weak var campaignTableView: UITableView!
     
@@ -324,6 +347,30 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return
     }
     
+    private func logOutUserFromAllSocialNetworks(){
+        
+        //logout user out of Facebook
+        FBSDKAccessToken.setCurrent(nil)
+        //logout user out of twitter
+        let twitterSessionStore = Twitter.sharedInstance().sessionStore
+        twitterSessionStore.reload()
+        
+        for case let session as TWTRSession in twitterSessionStore.existingUserSessions()
+        {
+            twitterSessionStore.logOutUserID(session.userID)
+        }
+
+        
+    }
+    
+    private func redirectUserToLogin(){
+        //user is logged in, redirect to main View
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let authScreenViewController = storyboard.instantiateViewController(withIdentifier: "AuthScreenViewController") as! AuthScreenViewController
+        self.navigationController?.pushViewController(authScreenViewController, animated: true)
+    }
     
 
 }

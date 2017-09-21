@@ -108,7 +108,13 @@
                             <constraint firstItem="M9w-K6-e0g" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-93" id="yVi-gu-dzC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Campaign List" id="sOs-x0-j3E"/>
+                    <navigationItem key="navigationItem" title="Campaign List" id="sOs-x0-j3E">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="uHv-2d-UG3">
+                            <connections>
+                                <action selector="onLogoutButtonClick:" destination="BYZ-38-t0r" id="kOc-6b-ZnO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="campaignTableView" destination="M9w-K6-e0g" id="1yb-Pl-hDv"/>
                     </connections>
@@ -598,7 +604,7 @@
         <!--Auth Screen View Controller-->
         <scene sceneID="iWu-7n-4xS">
             <objects>
-                <viewController id="Plt-8a-7Qq" customClass="AuthScreenViewController" customModule="donors_tweet_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthScreenViewController" id="Plt-8a-7Qq" customClass="AuthScreenViewController" customModule="donors_tweet_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pES-e6-TgC"/>
                         <viewControllerLayoutGuide type="bottom" id="pPP-ce-4Ft"/>
@@ -614,11 +620,11 @@
             </objects>
             <point key="canvasLocation" x="1464.8" y="71.514242878560722"/>
         </scene>
-        <!--Item-->
+        <!--Fundaciones-->
         <scene sceneID="Sew-Gj-Bmy">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SVQ-vT-YL8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gIL-AC-ytb"/>
+                    <tabBarItem key="tabBarItem" title="Fundaciones" id="gIL-AC-ytb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pIt-uh-SiX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -633,11 +639,11 @@
             </objects>
             <point key="canvasLocation" x="2104.8000000000002" y="1074.5127436281859"/>
         </scene>
-        <!--Item-->
+        <!--Sponsors-->
         <scene sceneID="ezJ-M3-9jt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Sl-2M-ZZ8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oyR-iF-TkZ"/>
+                    <tabBarItem key="tabBarItem" title="Sponsors" id="oyR-iF-TkZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="inu-W5-8u8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -652,11 +658,11 @@
             </objects>
             <point key="canvasLocation" x="3951.1999999999998" y="1074.5127436281859"/>
         </scene>
-        <!--Item-->
+        <!--Ranking-->
         <scene sceneID="5d4-Kx-loU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yag-ak-8rh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="AEa-yI-ZOP"/>
+                    <tabBarItem key="tabBarItem" title="Ranking" id="AEa-yI-ZOP"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GQc-1E-qsj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -671,11 +677,11 @@
             </objects>
             <point key="canvasLocation" x="5751.1999999999998" y="1074.5127436281859"/>
         </scene>
-        <!--Item-->
+        <!--Main-->
         <scene sceneID="4CV-MI-8hE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bOi-Lz-iNk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="f0p-TV-vVa"/>
+                    <tabBarItem key="tabBarItem" title="Main" id="f0p-TV-vVa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DJY-Wa-bM6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
