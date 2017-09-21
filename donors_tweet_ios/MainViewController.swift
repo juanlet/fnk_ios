@@ -101,7 +101,6 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     private func parseCategories(_ categoriesListJSON:JSON){
         
         categoriesArray = categoriesListJSON["data"].arrayValue
-        var a=1
         
 //        go over the categories
         categoriesArray.map({
