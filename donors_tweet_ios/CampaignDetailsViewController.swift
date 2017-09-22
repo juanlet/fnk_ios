@@ -21,6 +21,9 @@ class CampaignDetailsViewController: UIViewController {
     
     var sponsorAdId:String? = nil
     
+    var countdownTimerTillNextClick:Timer? = Timer()
+    
+    var secondsRemainingTillNextClick: Int = 0
     
     @IBOutlet weak var contributorsQtyLabel: UILabel!
     
@@ -141,6 +144,11 @@ class CampaignDetailsViewController: UIViewController {
             
             goalPercentageAchievedLabel.text = "%\(goalPercentageAchieved)"
         }
+        
+        secondsRemainingTillNextClick = campaignCauseDetails["time_remaining_till_next_click"].intValue/1000
+        
+        setCountdownTimerTillNextClick()
+        
         
         
     }
@@ -301,6 +309,7 @@ class CampaignDetailsViewController: UIViewController {
                     if(statusCode == 200){
                     let socialNetworksPostResponseJSON = JSON(socialNetworkResponsedata)
                     self.parseSocialNetworksPostResponse(socialNetworksPostResponseJSON)
+                        
                     }else if statusCode == 700{
                         //tweet has been retweeted it or message too long
                         print("ERROR_POSTING_SOCIAL_NETWORKS",statusCode)
@@ -370,6 +379,61 @@ class CampaignDetailsViewController: UIViewController {
         
         
        // let responseCode = socialNetworksPostResponseJSON["code"].stringValue
+        
+        secondsRemainingTillNextClick = socialNetworksPostResponseJSON["time_remaining_till_next_click"].intValue/1000
+        
+        let isKeyFundker = socialNetworksPostResponseJSON["is_key_fundker"].boolValue
+        
+        self.showSuccessPopup()
+        
+        if(isKeyFundker){
+            //do actions for key fundker
+            self.showKeyFundkerPopup()
+        }
+        
+    
+        
+    }
+    
+    private func showSuccessPopup(){
+        //TODO: LUCAS COMPLETAR con popup de éxito
+
+    }
+    
+    private func showKeyFundkerPopup(){
+        //TODO: LUCAS COMPLETAR con popup de key fundker
+
+    }
+    
+    //sets timer
+    private func setCountdownTimerTillNextClick(){
+ 
+        
+        countdownTimerTillNextClick = Timer.scheduledTimer(timeInterval: 1.0, target: self,  selector: #selector(timerRunning), userInfo: nil, repeats: true)
+        
+    }
+    
+    func timerRunning() {
+        
+        secondsRemainingTillNextClick -= 1
+        if(secondsRemainingTillNextClick > 0){
+        let minutesLeft = Int(secondsRemainingTillNextClick) / 60 % 60
+        let secondsLeft = Int(secondsRemainingTillNextClick) % 60
+        timeLeftTillNextClickLabel.text = "\(minutesLeft):\(secondsLeft)"
+        }else{
+            if(!timeLeftTillNextClickLabel.isHidden){
+            timeLeftTillNextClickLabel.isHidden = true
+            }
+        }
+     //   manageTimerEnd(seconds: timeRemaining)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //kill timer
+        countdownTimerTillNextClick!.invalidate()
+        countdownTimerTillNextClick = nil
+        secondsRemainingTillNextClick = 0
         
     }
 
