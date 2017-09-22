@@ -269,25 +269,32 @@ class CampaignDetailsViewController: UIViewController {
     
     func parseLastContributorsDataResponse(_ contributorsData:JSON){
         
+        
         let totalContributorsCampaign = contributorsData["total_contributors_campaign"]
         
         contributorsData["contributors"].arrayValue.map({
-            
+            //ATTENTION!!!! this function executes once per contributor, it's like the for loop
+
             let contributorProfileImageUrlString = $0["profile_image_url"].stringValue
             
             let contributorProfileImageUrl:URL? =  contributorProfileImageUrlString != "" ? URL(string:contributorProfileImageUrlString) : nil
             
             let contributorFollowersCount = $0["followers_count"].stringValue
             
+           //TODO LUCAS: CREATE BUBBLE AND PUT IT IN THE BOTTOM SECTION WHERE THE LAST CONTRIBUTORS BUBBLES SHOULD BE PLACED
+            
+            
             //create label and bubble
             
-            let lastContributorLabel = UILabel()
-            
-            lastContributorLabel.text = "\(contributorFollowersCount) alcance"
-            
-            lastContributorsView.addSubview(lastContributorLabel)
+//            let lastContributorLabel = UILabel()
+//            
+//            lastContributorLabel.text = "\(contributorFollowersCount) alcance"
             
             
+            
+//            lastContributorsView.addSubview(lastContributorLabel)
+//            
+//            
             print(contributorFollowersCount,contributorProfileImageUrlString)
             
             

@@ -20,6 +20,8 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var campaignRowsData  = [CauseCampaign]()
     var categoriesArray = [Any]()
     
+    @IBOutlet weak internal var totalActiveCampaignsLabel: UILabel!
+    
     var serverFetchCampaignsUrl = Config.Global._serverUrl
     
     @IBAction func onLogoutButtonClick(_ sender: Any) {
@@ -104,7 +106,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
 //        go over the categories
         categoriesArray.map({
-            
+            //TODO LUCAS: create bubbles with categories
             print($0)
             
         })
@@ -155,6 +157,11 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             //Now you got your value
             print("TOTAL_ACTIVE_CAMPAIGNS",activeCampaignCount)
             CampaignsGlobalDataManagerUtil.campaignTotalCount = Int(activeCampaignCount)!
+            
+            //TODO FILL LABEL WITH total active campaigns
+            
+            totalActiveCampaignsLabel.text = "ACTIVE CAMPAIGNS: \(activeCampaignCount)"
+            
         }
         
         if let contributorUserId = campaignCausesJSON["contributor_user_id"].string {
