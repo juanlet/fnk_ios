@@ -51,6 +51,10 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
                 let client = TWTRAPIClient.withCurrentUser()
                 let twitterId = session?.userID
+                if let twitterUserName = session?.userName{
+                    CurrentUserUtil.twitterUserName = twitterUserName
+                }
+              
                 
                 
                 //get user email to insert it into firebase
@@ -61,15 +65,15 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                         
                         
                         //get the token and the user's secret from twitter's login response
-                        guard let token = session?.authToken else { return }
+                        guard let twitterToken = session?.authToken else { return }
                         
-                        guard let secret = session?.authTokenSecret else { return }
+                        guard let twitterSecret = session?.authTokenSecret else { return }
                         
-                        CurrentUserUtil.twitterAccessToken = token
-                        CurrentUserUtil.twitterAccessTokenSecret = secret
+                        CurrentUserUtil.twitterAccessToken = twitterToken
+                        CurrentUserUtil.twitterAccessTokenSecret = twitterSecret
                         
                         
-                        let credentials = TwitterAuthProvider.credential(withToken: token, secret: secret)
+                        let credentials = TwitterAuthProvider.credential(withToken: twitterToken, secret: twitterSecret)
                         //create firebase user
                         Auth.auth().signIn(with: credentials, completion: { (user, error) in
                             
@@ -78,9 +82,10 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 return
                             }
                             
-                            let twitterDisplayName = Auth.auth().currentUser?.displayName
+                            if let twitterDisplayName = Auth.auth().currentUser?.displayName as? String{
+                                CurrentUserUtil.twitterDisplayName = twitterDisplayName
+                            }
                             
-                            CurrentUserUtil.twitterDisplayName = twitterDisplayName!
                             
                             print("Successfully created a Firebase-Twitter user: ",user?.uid ?? "")
                             
@@ -100,7 +105,7 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
                                 let firebaseId = Auth.auth().currentUser?.uid
                                 
                                 //saving to user defaults
-                                self.saveToUserDefaults(firebaseId!, socialNetwork: "TWITTER", socialNetworkId: twitterId!)
+                                self.saveToUserDefaults(firebaseId!, socialNetwork: "TWITTER", socialNetworkId: twitterId!,accessToken: twitterToken,accessSecret: twitterSecret)
                                 
                                 self.redirectUserToMain()
                                 
@@ -223,7 +228,7 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
             
             let firebaseId = Auth.auth().currentUser?.uid
             
-            self.saveToUserDefaults(firebaseId!, socialNetwork: "FACEBOOK", socialNetworkId: facebookId)
+            self.saveToUserDefaults(firebaseId!, socialNetwork: "FACEBOOK", socialNetworkId: facebookId, accessToken: "", accessSecret: "")
             
             self.redirectUserToMain()
         }
@@ -247,21 +252,23 @@ class AuthScreenViewController: UIViewController, FBSDKLoginButtonDelegate {
          self.navigationController?.pushViewController(mainTabBarController, animated: true)
    }
     
-    func saveToUserDefaults(_ firebaseId: String,socialNetwork: String,socialNetworkId: String){
-
-        preferences.set( firebaseId,forKey: Config.Global._firebaseIdUserDefaults)
+    func saveToUserDefaults(_ firebaseId: String,socialNetwork: String,socialNetworkId: String, accessToken: String, accessSecret: String){
+//token is the public key, and the secret is the private key of the user
+        preferences.set( firebaseId,forKey: Config.Global._firebaseIdUserDefaultsKey)
         
         CurrentUserUtil.firebaseId = firebaseId
         
         if socialNetwork == "TWITTER" {
         
-            preferences.set(socialNetworkId , forKey: Config.Global._twitterIdUserDefaults)
+            preferences.set(socialNetworkId , forKey: Config.Global._twitterIdUserDefaultsKey)
+            preferences.set(accessToken , forKey: Config.Global._twitterAccessTokenUserDefaultsKey)
+            preferences.set(accessSecret , forKey: Config.Global._twitterAccessTokenSecretUserDefaultsKey)
         
         CurrentUserUtil.twitterId = socialNetworkId
         
         } else if socialNetworkId == "FACEBOOK"{
-            preferences.set(socialNetworkId , forKey: Config.Global._facebookIdUserDefaults)
-         CurrentUserUtil.facebookId = socialNetworkId
+            preferences.set(socialNetworkId , forKey: Config.Global._facebookIdUserDefaultsKey)
+            CurrentUserUtil.facebookId = socialNetworkId
         }
         
         //FOR DEBUGGING TO PRINT ALL THE CONTENT OF USER DEFAULTS TO SEE IF THE KEYS WERE SAVED CORRECTLY TO RECOVER THEM ON THE MAIN VIEW CONTROLLER

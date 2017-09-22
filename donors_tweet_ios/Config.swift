@@ -14,11 +14,15 @@ class Config: NSObject {
         //url of the server base path
         static let _serverUrl = "http://localhost:3000/api"
         //tag to store facebook id in user defaults
-        static let _facebookIdUserDefaults = "FACEBOOK_ID"
+        static let _facebookIdUserDefaultsKey = "FACEBOOK_ID"
         //tag to store twitter id in user defaults
-        static let _twitterIdUserDefaults = "TWITTER_ID"
+        static let _twitterIdUserDefaultsKey = "TWITTER_ID"
         //tag to store firebase id in user defaults
-        static let _firebaseIdUserDefaults = "FIREBASE_ID"
+        static let _firebaseIdUserDefaultsKey = "FIREBASE_ID"
+        
+        static let _twitterAccessTokenUserDefaultsKey =  "TWITTER_ACCESS_TOKEN"
+        
+        static let _twitterAccessTokenSecretUserDefaultsKey = "TWITTER_ACCESS_TOKEN_SECRET"
 
     }
     

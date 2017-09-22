@@ -1,4 +1,4 @@
-//
+ //
 //  CampaignDetailsViewController.swift
 //  donors_tweet_ios
 //
@@ -292,24 +292,68 @@ class CampaignDetailsViewController: UIViewController {
        
         let params = buildParamsForPostingToSocialNetworks()
         
-        Alamofire.request(serverFetchCampaignsUrl+"/api/twitter/post", method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
+        Alamofire.request(serverFetchCampaignsUrl+"/twitter/post", method: .post, parameters: params, encoding: URLEncoding.httpBody).responseJSON { response in
             
-            if let socialNetworkResponsedata = response.data {
-                let socialNetworksPostResponseJSON = JSON(socialNetworkResponsedata)
+            switch response.result {
+            case .success(let socialNetworkResponsedata):
+                
+                if let statusCode = response.response?.statusCode {
+                    if(statusCode == 200){
+                    let socialNetworksPostResponseJSON = JSON(socialNetworkResponsedata)
+                    self.parseSocialNetworksPostResponse(socialNetworksPostResponseJSON)
+                    }else if statusCode == 700{
+                        //tweet has been retweeted it or message too long
+                        print("ERROR_POSTING_SOCIAL_NETWORKS",statusCode)
+                    }else if statusCode == 500{
+                        //server error
+                        print("ERROR_POSTING_SOCIAL_NETWORKS",statusCode)
+                    }else if statusCode == 404{
+                        //route not found
+                        print("ERROR_POSTING_SOCIAL_NETWORKS",statusCode)
+                    }else if statusCode == 412{
+                        //5 minutes have not passed
+                        print("ERROR_POSTING_SOCIAL_NETWORKS",statusCode)
+                    }
+                }else{
+                    //no response code for whatever reason throw error
+                    print("ERROR_POSTING_SOCIAL_NETWORKS",500)
+                }
 
-                self.parseSocialNetworksPostResponse(socialNetworksPostResponseJSON)
+                
+            case .failure(let error):
+                print("ERROR_POSTING_SOCIAL_NETWORKS",error)
             }
+
         }
     }
     
     private func buildParamsForPostingToSocialNetworks()->[String: Any]{
         
+        var twitterAccessToken = ""
+        
+        var twitterAccessTokenSecret = ""
+        
+        if let twtToken = UserDefaults.standard.object(forKey: Config.Global._twitterAccessTokenUserDefaultsKey) as? String{
+            twitterAccessToken = twtToken
+        }else{
+            print("TWITTER ACCESS TOKEN IS NULL")
+        }
+        
+        
+        if  let twtTokenSecret = UserDefaults.standard.object(forKey: Config.Global._twitterAccessTokenSecretUserDefaultsKey) as? String{
+             twitterAccessTokenSecret = twtTokenSecret
+        }else{
+            print("TWITTER ACCESS TOKEN SECRET IS NULL")
+        }
+        
+        
+        
         //TODO:Change mail to a variable when twitter white list out app
-        let params: [String: Any] = ["access_token": CurrentUserUtil.twitterAccessToken,
-                      "access_token_secret": CurrentUserUtil.twitterAccessTokenSecret,
+        let params: [String: Any] = ["access_token": twitterAccessToken,
+                      "access_token_secret": twitterAccessTokenSecret,
                       "campaign_id": self.causeCampaignId,
-                      "sponsor_ad_id":self.sponsorAdId,
-                      "sponsor_id": self.sponsorId,
+                      "sponsor_ad_id":self.sponsorAdId!,
+                      "sponsor_id": self.sponsorId!,
                       "twitter_display_name":CurrentUserUtil.twitterDisplayName,
                       "twitter_user_id":CurrentUserUtil.twitterId,
                       "twitter_username":CurrentUserUtil.twitterUserName,

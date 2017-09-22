@@ -354,7 +354,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     func recoverUserDefaults(){
-        if let fbID = UserDefaults.standard.object(forKey: Config.Global._facebookIdUserDefaults) as? String {
+        if let fbID = UserDefaults.standard.object(forKey: Config.Global._facebookIdUserDefaultsKey) as? String {
             facebookID = fbID
         }else{
             print("FACEBOOK ID IS NULL")
@@ -362,7 +362,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
         
-        if let twtID = UserDefaults.standard.object(forKey: Config.Global._twitterIdUserDefaults) as? String{
+        if let twtID = UserDefaults.standard.object(forKey: Config.Global._twitterIdUserDefaultsKey) as? String{
             twitterID = twtID
              CurrentUserUtil.twitterId = twitterID
         }else{
@@ -370,7 +370,7 @@ class MainViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
         
-        if  let firID = UserDefaults.standard.object(forKey: Config.Global._firebaseIdUserDefaults) as? String{
+        if  let firID = UserDefaults.standard.object(forKey: Config.Global._firebaseIdUserDefaultsKey) as? String{
             firebaseID = firID
              CurrentUserUtil.firebaseId = firebaseID
         }else{
