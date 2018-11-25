@@ -26,15 +26,15 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.941939169804-gd2cmngebqdna4q919112n56ir3l5c18</string>
-				<string>fb995198773956015</string>
-                <string>twitterkit-OrXCBujNBKDKJWWcWDG13caAo</string>
+				<string>fbXXXXXXXXXXXXXX</string>
+                <string>twitterkit-XXXXXXXXXX</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>995198773956015</string>
+	<string>XXXXXXXXXXXXXX</string>
 	<key>FacebookDisplayName</key>
 	<string>fundk</string>
 	<key>LSApplicationCategoryType</key>

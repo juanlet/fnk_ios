@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        Twitter.sharedInstance().start(withConsumerKey: "OrXCBujNBKDKJWWcWDG13caAo", consumerSecret: "muUStgO5YLuuKBdBTEWvfEC4I66IKs1AGJloZw9wr7Zpk0k1nX")
+        Twitter.sharedInstance().start(withConsumerKey: "XXXXXXXXXXXXXXXXX", consumerSecret: "XXXXXXXXXXXXXXXXXXXXXX")
         
         FirebaseApp.configure()
         
